@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Limitless Periodontics & Implants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --navy: #0d2b5e;
+    --blue: #1e5fa8;
+    --blue-mid: #2d7dd2;
+    --blue-light: #5b9bd5;
+    --blue-pale: #dbeeff;
+    --blue-faint: #f0f7ff;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a2a3a; background: #fff; margin: 0; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+  /* TOP BAR */
+  .top-bar { background: var(--navy); padding: 13px 24px; }
+  .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 36px; }
+  .top-bar-item { display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,0.88); font-size: 16px; font-weight: 400; text-decoration: none; transition: color 0.2s; }
+  .top-bar-item:hover { color: #fff; }
+  .top-bar-item svg { flex-shrink: 0; opacity: 0.8; }
+
+  /* NAV */
+  .sticky-header { position: sticky; top: 0; z-index: 100; }
+  nav { background: #fff; box-shadow: 0 2px 20px rgba(13,43,94,0.12); }
+  .nav-inner { width: 100%; padding: 0 32px; display: flex; align-items: center; height: 110px; position: relative; }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+  .logo-wrap img { height: 108px; width: auto; }
+  .nav-links-center { display: flex; align-items: center; gap: 4px; position: absolute; left: 50%; transform: translateX(-50%); }
+  .nav-links-right { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+  .nav-link {
+    position: relative; padding: 8px 16px; font-size: 15px; font-weight: 500;
+    color: var(--navy); text-decoration: none; border-radius: 6px; cursor: pointer;
+    transition: background 0.2s, color 0.2s; white-space: nowrap; background: none; border: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-link:hover, .nav-link.active { background: var(--blue-pale); color: var(--blue); }
+  .nav-link.cta { background: var(--navy); color: #fff; margin-left: 8px; }
+  .nav-link.cta:hover { background: var(--blue); }
+  .nav-link.appt-btn { background: var(--blue-mid); color: #fff; margin-left: 10px; font-weight: 600; border-radius: 8px; padding: 10px 20px; box-shadow: 0 4px 16px rgba(30,95,168,0.28); transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
+  .nav-link.appt-btn:hover { background: var(--navy); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(13,43,94,0.3); }
+
+  /* DROPDOWN */
+  .dropdown { position: relative; }
+  .dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 4px); left: 0;
+    background: #fff; border-radius: 10px; min-width: 220px;
+    box-shadow: 0 8px 40px rgba(13,43,94,0.16); border: 1px solid var(--blue-pale);
+    overflow: hidden; z-index: 200;
+  }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-item {
+    display: block; padding: 11px 20px; font-size: 14px; color: #2a3a4a;
+    text-decoration: none; transition: background 0.15s, color 0.15s; cursor: pointer;
+    border: none; background: none; width: 100%; text-align: left; font-family: 'Inter', sans-serif;
+  }
+  .dropdown-item:hover { background: var(--blue-faint); color: var(--blue); }
+  .dropdown-item + .dropdown-item { border-top: 1px solid #f0f4f8; }
+
+  /* MULTI-COLUMN DROPDOWN */
+  .dropdown-menu-wide {
+    display: none; position: absolute; top: calc(100% + 4px); left: 50%;
+    transform: translateX(-50%);
+    background: #fff; border-radius: 12px; width: 700px;
+    box-shadow: 0 8px 40px rgba(13,43,94,0.16); border: 1px solid var(--blue-pale);
+    z-index: 200; padding: 24px 20px 20px;
+  }
+  .dropdown:hover .dropdown-menu-wide { display: flex; gap: 0; }
+  .dropdown-col { flex: 1; padding: 0 16px; }
+  .dropdown-col + .dropdown-col { border-left: 1px solid #e8eef6; }
+  .dropdown-col-title {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy);
+    padding: 0 8px 10px; margin-bottom: 4px; border-bottom: 2px solid var(--blue-pale);
+  }
+  .dropdown-col .dropdown-item { padding: 9px 8px; border-radius: 6px; }
+  .dropdown-col .dropdown-item + .dropdown-item { border-top: none; margin-top: 2px; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a4a8a 50%, #2d7dd2 100%);
+    min-height: 88vh; display: flex; align-items: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(91,155,213,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(13,43,94,0.4) 0%, transparent 50%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-text h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); color: #fff; line-height: 1.18; letter-spacing: -0.03em; margin: 0 0 20px; }
+  .hero-text h1 span { color: #7ec8f0; }
+  .hero-text p { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin: 0 0 36px; }
+  .btn-primary { display: inline-block; background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+  .btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 12px 28px; border-radius: 8px; font-weight: 500; font-size: 15px; text-decoration: none; margin-left: 12px; transition: background 0.2s, border-color 0.2s; cursor: pointer; background: none; font-family: 'Inter', sans-serif; }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+  .hero-image { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); position: relative; }
+  .hero-image img { width: 100%; display: block; }
+
+  /* SECTION */
+  .section { padding: 80px 24px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); margin: 0 0 16px; letter-spacing: -0.02em; }
+  .section-sub { font-size: 1.05rem; color: #4a6080; line-height: 1.7; max-width: 560px; }
+
+  /* SERVICES GRID */
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    position: relative; border-radius: 16px; overflow: hidden; cursor: pointer;
+    height: 320px; box-shadow: 0 8px 32px rgba(13,43,94,0.18);
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(13,43,94,0.28); }
+  .service-card-bg {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    transition: transform 0.5s ease; filter: brightness(0.72);
+  }
+  .service-card:hover .service-card-bg { transform: scale(1.06); filter: brightness(0.57); }
+  .service-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,43,94,0.85) 0%, rgba(13,43,94,0.2) 60%, transparent 100%);
+  }
+  .service-card-content {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; padding: 32px 28px; text-align: center;
+  }
+  .service-card-content h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.9rem; color: #fff;
+    margin: 0; letter-spacing: -0.01em; line-height: 1.2;
+  }
+  .service-card-arrow {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+    color: #7ec8f0; font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s;
+  }
+  .service-card:hover .service-card-arrow { opacity: 1; transform: translateY(0); }
+
+  /* WHY CHOOSE */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+  .why-card { text-align: center; padding: 32px 20px; background: var(--blue-faint); border-radius: 14px; }
+  .why-num { font-size: 2.4rem; font-weight: 700; color: var(--blue); font-family: 'Playfair Display', serif; }
+  .why-card p { font-size: 14px; color: #4a6080; margin: 8px 0 0; line-height: 1.5; }
+
+  /* ── 3-PART PROCEDURE LAYOUT ── */
+  .tp-section { padding: 80px 24px; }
+  .tp-inner { max-width: 1200px; margin: 0 auto; }
+  .tp-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 12px; }
+  .tp-section h2 { font-size: clamp(1.7rem, 2.8vw, 2.4rem); margin: 0 0 20px; letter-spacing: -0.02em; line-height: 1.2; }
+  .tp-section p { font-size: 1rem; line-height: 1.75; margin: 0 0 16px; }
+
+  /* Part 1 — Problem (white) */
+  .tp-problem { background: #fff; }
+  .tp-problem .tp-label { color: var(--blue); }
+  .tp-problem h2 { color: var(--navy); }
+  .tp-problem p { color: #4a6080; }
+
+  /* Part 2 — Treatment (navy) */
+  .tp-treatment { background: var(--navy); }
+  .tp-treatment .tp-label { color: #7ec8f0; }
+  .tp-treatment h2 { color: #fff; }
+  .tp-treatment p { color: rgba(255,255,255,0.78); }
+
+  /* Part 3 — Benefits (light blue) */
+  .tp-benefits { background: var(--blue-faint); }
+  .tp-benefits .tp-label { color: var(--blue); }
+  .tp-benefits h2 { color: var(--navy); }
+
+  /* Split grid */
+  .tp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .tp-split.rev { direction: rtl; }
+  .tp-split.rev > * { direction: ltr; }
+
+  /* Photo / animation box */
+  .tp-media { border-radius: 16px; overflow: hidden; position: relative; }
+  .tp-media img { width: 100%; display: block; }
+  .tp-media-anim { border-radius: 16px; background: rgba(255,255,255,0.08); padding: 40px; display: flex; align-items: center; justify-content: center; min-height: 320px; }
+  .tp-problem .tp-media-anim { background: var(--blue-faint); }
+  .tp-benefits .tp-media-anim { background: #fff; }
+
+  /* Steps list */
+  .tp-steps { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-direction: column; gap: 20px; }
+  .tp-steps li { display: flex; gap: 18px; align-items: flex-start; }
+  .tp-step-num { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .tp-step-body h4 { font-size: 15px; font-weight: 600; color: #fff; margin: 0 0 4px; font-family: 'Inter', sans-serif; }
+  .tp-step-body p { font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.55; }
+
+  /* Benefits list */
+  .tp-benefits-list { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tp-benefits-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: #2a3a4a; line-height: 1.5; }
+  .tp-benefits-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* Breadcrumb */
+  .tp-breadcrumb { background: var(--blue-faint); padding: 14px 24px; border-bottom: 1px solid #dce8f0; font-size: 13px; color: #5a7090; }
+  .tp-breadcrumb span { color: var(--blue); cursor: pointer; }
+  .tp-breadcrumb span:hover { text-decoration: underline; }
+
+  /* Old compat */
+  .step-list { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 16px; }
+  .step-item { display: flex; gap: 20px; align-items: flex-start; }
+  .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .step-text h4 { font-size: 1rem; color: var(--navy); margin: 0 0 4px; font-family: 'Inter', sans-serif; font-weight: 600; }
+  .step-text p { font-size: 14px; color: #5a7090; line-height: 1.6; margin: 0; }
+
+  @media(max-width:768px) {
+    .tp-split, .tp-split.rev { grid-template-columns: 1fr; direction: ltr; }
+    .tp-benefits-list { grid-template-columns: 1fr; }
+  }
+
+  /* MEET DOCTOR */
+  .doctor-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: start; max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+  .doctor-photo { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(13,43,94,0.18); position: sticky; top: 90px; }
+  .doctor-photo img { width: 100%; display: block; }
+  .doctor-bio h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); margin: 0 0 8px; letter-spacing: -0.02em; }
+  .doctor-bio .title { color: var(--blue); font-size: 1rem; font-weight: 500; margin-bottom: 28px; display: block; }
+  .doctor-bio p { color: #3a5070; line-height: 1.75; font-size: 1.02rem; margin: 0 0 20px; }
+  .credential-list { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-direction: column; gap: 10px; }
+  .credential-list li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: #2a3a4a; }
+  .credential-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+  .contact-form { background: #fff; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; letter-spacing: 0.04em; }
+  .form-input { width: 100%; padding: 12px 16px; border: 1.5px solid #dce8f0; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #1a2a3a; transition: border-color 0.2s; outline: none; }
+  .form-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(45,125,210,0.1); }
+  textarea.form-input { resize: vertical; min-height: 120px; }
+  .btn-blue { background: var(--navy); color: #fff; border: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: background 0.2s, transform 0.2s; font-family: 'Inter', sans-serif; }
+  .btn-blue:hover { background: var(--blue); transform: translateY(-1px); }
+  .contact-info h2 { font-size: 1.8rem; color: var(--navy); margin: 0 0 24px; }
+  .info-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+  .info-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .info-item h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin: 0 0 4px; font-family: 'Inter', sans-serif; }
+  .info-item p { font-size: 14px; color: #5a7090; margin: 0; line-height: 1.5; }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 14px; }
+  footer span { color: #fff; font-weight: 600; }
+  footer .privacy-link { background: none; border: none; color: #7ec8f0; font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; text-decoration: underline; transition: color 0.2s; }
+  footer .privacy-link:hover { color: #fff; }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  .page.active > * { animation: fadeInUp 0.4s ease both; }
+
+  /* SVG ANIMATIONS */
+  @keyframes gumRecede { 0%,100%{transform:translateY(0)} 50%{transform:translateY(18px)} }
+  @keyframes boneRecede { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+  @keyframes implantDrop { 0%{transform:translateY(-60px);opacity:0} 40%{opacity:1} 100%{transform:translateY(0)} }
+  @keyframes screwRotate { 0%{transform:translateY(-80px) rotate(0deg)} 100%{transform:translateY(0) rotate(720deg)} }
+  @keyframes pulse { 0%,100%{opacity:0.3;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.15)} }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  @keyframes gumFill { 0%{stroke-dashoffset:200} 100%{stroke-dashoffset:0} }
+  @keyframes sinus-expand { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(1.3)} }
+  @keyframes osseousShave { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  @keyframes crownReveal { 0%{clip-path:inset(60% 0 0 0)} 100%{clip-path:inset(0% 0 0 0)} }
+  @keyframes boneGrow { 0%{transform:scaleY(0.6)} 100%{transform:scaleY(1)} }
+  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  @keyframes bacteriaPulse { 0%,100%{r:4px;opacity:0.8} 50%{r:7px;opacity:0.4} }
+
+  /* SEDATION / SPLIT LAYOUT */
+  .tp-split-text { display: flex; flex-direction: column; justify-content: center; }
+  .tp-split-media { display: flex; align-items: center; justify-content: center; }
+  .tp-intro { font-size: 1.02rem; color: #4a6080; line-height: 1.75; margin: 0 0 24px; }
+  .tp-section .tp-benefits { background: var(--blue-faint); border-radius: 12px; padding: 20px 24px; margin-top: 8px; }
+  .tp-benefit-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 15px; color: #2a3a4a; line-height: 1.5; }
+  .tp-benefit-item + .tp-benefit-item { border-top: 1px solid rgba(0,0,0,0.05); }
+  .tp-benefit-icon { color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* REFERRAL FORM */
+  .referral-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; padding: 80px 24px; align-items: start; }
+  .referral-intro { background: var(--blue-faint); border-radius: 14px; padding: 32px; }
+  .referral-intro h3 { font-family: 'Playfair Display', serif; color: var(--navy); font-size: 1.4rem; margin: 0 0 16px; }
+  .referral-intro p { font-size: 14px; color: #4a6080; line-height: 1.7; margin: 0 0 12px; }
+  .referral-contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--navy); font-weight: 500; margin-top: 20px; }
+  .referral-contact-row a { color: var(--blue); text-decoration: none; }
+  .referral-contact-row a:hover { text-decoration: underline; }
+  @media(max-width:768px) { .referral-grid { grid-template-columns: 1fr; } }
+
+  /* RESPONSIVE */
+  @media(max-width:768px) {
+    .hero-content, .proc-grid, .doctor-layout, .contact-grid { grid-template-columns: 1fr; }
+    .hero-image { display: none; }
+    .adv-list { grid-template-columns: 1fr; }
+    .nav-links-center, .nav-links-right { gap: 0; }
+    .nav-link { padding: 8px 10px; font-size: 13px; }
+    .tp-split { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ TOP BAR + NAV ═══════════════════════════ -->
+<div class="sticky-header">
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <a class="top-bar-item" href="https://maps.google.com/?q=1701+Solar+Drive+Suite+291+Oxnard+CA+93030" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2C6.69 2 4 4.69 4 8c0 5.25 6 10 6 10s6-4.75 6-10c0-3.31-2.69-6-6-6z" stroke="#7ec8f0" stroke-width="1.8" fill="none"/>
+        <circle cx="10" cy="8" r="2.2" stroke="#7ec8f0" stroke-width="1.8" fill="none"/>
+      </svg>
+      1701 Solar Drive, Suite 291, Oxnard, CA 93030
+    </a>
+    <a class="top-bar-item" href="tel:8053128604">
+      <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.5 3.5h3.2l1.6 4-2 1.2a9 9 0 004 4l1.2-2 4 1.6v3.2a1.6 1.6 0 01-1.6 1.6C7.1 17.1 2.9 12.9 2.9 5.1A1.6 1.6 0 014.5 3.5h-.5z" stroke="#7ec8f0" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+      </svg>
+      805-312-8604
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo-wrap" onclick="showPage('home')" style="cursor:pointer">
+      <img src="Brand_assets/Logo.jpg" alt="Limitless Periodontics & Implants"/>
+    </a>
+    <div class="nav-links-center">
+      <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nav-meet-doctor" onclick="showPage('meet-doctor')">Meet the Doctor</button>
+
+      <div class="dropdown">
+        <button class="nav-link" id="nav-services">Our Services ▾</button>
+        <div class="dropdown-menu-wide">
+          <div class="dropdown-col">
+            <div class="dropdown-col-title">Implants</div>
+            <button class="dropdown-item" onclick="showPage('implants-what')">What Are Dental Implants?</button>
+            <button class="dropdown-item" onclick="showPage('implants-placement')">Dental Implant Placement</button>
+            <button class="dropdown-item" onclick="showPage('implants-extraction')">Extraction & Socket Preservation</button>
+            <button class="dropdown-item" onclick="showPage('implants-sinus')">Sinus Lift</button>
+            <button class="dropdown-item" onclick="showPage('implants-overdenture')">Overdenture</button>
+            <button class="dropdown-item" onclick="showPage('implants-allon')">All-On-X</button>
+            <button class="dropdown-item" onclick="showPage('implants-failing')">Failing Implants</button>
+          </div>
+          <div class="dropdown-col">
+            <div class="dropdown-col-title">Periodontics</div>
+            <button class="dropdown-item" onclick="showPage('perio-recession')">Gum Recession</button>
+            <button class="dropdown-item" onclick="showPage('perio-disease')">Periodontal Disease Treatment</button>
+            <button class="dropdown-item" onclick="showPage('perio-crown')">Crown Lengthening</button>
+            <button class="dropdown-item" onclick="showPage('perio-osseous')">Osseous Surgery</button>
+            <button class="dropdown-item" onclick="showPage('perio-boneloss')">Bone Loss Regeneration</button>
+            <button class="dropdown-item" onclick="showPage('perio-frenectomy')">Frenectomy</button>
+          </div>
+          <div class="dropdown-col">
+            <div class="dropdown-col-title">Relieving Dental Anxiety</div>
+            <button class="dropdown-item" onclick="showPage('sedation')">Sedation Services</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-link" onclick="showPage('contact')">Contact Us</button>
+    </div>
+
+    <div class="nav-links-right">
+      <button class="nav-link cta" id="nav-referrals" onclick="showPage('referrals')">Referrals</button>
+      <button class="nav-link appt-btn" onclick="showPage('contact')">Request an Appointment</button>
+    </div>
+  </div>
+</nav>
+</div>
+
+<!-- ═══════════════════════════ HOME ═══════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="section-label" style="color:#7ec8f0;margin-bottom:12px">Dr. Ramin Foroughi · Periodontist</p>
+        <h1>Advanced Care for Your <span>Gums & Implants</span></h1>
+        <p>Specializing in periodontal disease treatment, dental implants, and gum recession — delivering precision care with compassion in Oxnard, CA.</p>
+        <div>
+          <button class="btn-primary" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/600x500/1a3a6b/7ec8f0?text=Modern+Periodontal+Practice" alt="Modern dental office"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="section" style="background:var(--blue-faint)">
+    <div class="section-inner">
+      <p class="section-label">Our Specialties</p>
+      <h2 class="section-title">Comprehensive Periodontal & Implant Services</h2>
+      <p class="section-sub">From routine gum disease treatment to full-arch implant restorations, we offer the full spectrum of periodontal specialty care.</p>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('implants-placement')">
+          <div class="service-card-bg" style="background-image:url('dental%20implant%20front.jpg')"></div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <h3>Dental Implants</h3>
+          </div>
+        </div>
+        <div class="service-card" onclick="showPage('perio-recession')">
+          <div class="service-card-bg" style="background-image:url('tissue%20grafting.webp')"></div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <h3>Gum Grafting</h3>
+          </div>
+        </div>
+        <div class="service-card" onclick="showPage('implants-allon')">
+          <div class="service-card-bg" style="background-image:url('All%20on%20X%20front.jpg')"></div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <h3>Full Arch (All-on-X) Implants</h3>
+          </div>
+        </div>
+        <div class="service-card" onclick="showPage('perio-boneloss')">
+          <div class="service-card-bg" style="background-image:url('Bone%20grafting.jpeg')"></div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <h3>Bone Grafting</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Patient Financing -->
+  <div style="background:#f8fbff;padding:64px 24px;text-align:center">
+    <p style="color:var(--blue);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:10px">Flexible Payment Options</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);color:var(--navy);margin:0 0 10px;letter-spacing:-0.02em">Treatment Financing Options</h2>
+    <p style="color:#4a6080;font-size:1rem;margin:0 0 44px">We work with leading financing partners to make your care affordable.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:center;gap:40px;max-width:1400px;margin:0 auto;padding:0 40px">
+      <img src="carecredit%202.png?v=2" alt="CareCredit" style="display:block;width:100%;height:90px;object-fit:contain;mix-blend-mode:multiply">
+      <img src="Cherry2.png" alt="Cherry" style="display:block;width:100%;height:73px;object-fit:contain;mix-blend-mode:multiply">
+      <img src="Lendingclub2.png" alt="LendingClub" style="display:block;width:100%;height:90px;object-fit:contain;mix-blend-mode:multiply">
+      <img src="ProceedFinance2.png" alt="Proceed Finance" style="display:block;width:100%;height:90px;object-fit:contain;mix-blend-mode:multiply">
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div style="background:linear-gradient(135deg,var(--navy),#2d7dd2);padding:70px 24px;text-align:center">
+    <p style="color:#7ec8f0;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:12px">Ready to Get Started?</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;margin:0 0 16px;letter-spacing:-0.02em">Your Healthy Smile Begins Here</h2>
+    <p style="color:rgba(255,255,255,0.8);font-size:1.05rem;margin:0 0 32px">Schedule a consultation and take the first step toward exceptional periodontal health.</p>
+    <button class="btn-primary" onclick="showPage('contact')">Schedule Your Consultation</button>
+  </div>
+
+  <footer><p>© 2026 <span>Limitless Periodontics & Implants</span>. All rights reserved.</p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ MEET THE DOCTOR ═══════════════════════════ -->
+<div class="page" id="page-meet-doctor">
+  <div style="background:var(--blue-faint);padding:20px 24px;border-bottom:1px solid #dce8f0">
+    <div style="max-width:1200px;margin:0 auto;font-size:13px;color:#5a7090">
+      <span onclick="showPage('home')" style="cursor:pointer;color:var(--blue)">Home</span> › Meet the Doctor
+    </div>
+  </div>
+  <div class="doctor-layout">
+    <div class="doctor-bio">
+      <p class="section-label">Our Specialist</p>
+      <h1>Dr. Ramin Foroughi</h1>
+      <span class="title">Periodontist · Limitless Periodontics & Implants</span>
+      <p>Dr. Ramin is a periodontist dedicated to combining advanced technology with compassionate care. He is trained in some of the most modern techniques in dentistry, including <strong>robot-guided and fully guided implant surgery</strong> and <strong>microsurgery</strong>, allowing him to deliver highly precise and predictable results.</p>
+      <p>He completed his undergraduate degree from UCLA in 2013 and his dental degree at the University of Southern California in 2017. He practiced as a general dentist for four years before completing his Periodontal specialty at Boston University — where he also taught Periodontics to dental students — giving him a strong restorative foundation that enhances his surgical approach and helps ensure the best esthetic outcomes for patients.</p>
+      <p>Beyond his clinical expertise, Dr. Ramin has volunteered in multiple <strong>Dental Humanitarian Outreach Programs (DHOP)</strong> through USC in the Philippines, Cambodia, Panama, and Belize, treating patients in some of the most underserved areas of the world. He was directly involved in organizing several of these trips and served as faculty teaching USC dental students.</p>
+      <div style="margin:20px 0 24px">
+        <img src="DHOP.JPG" alt="Dr. Ramin Foroughi at a DHOP humanitarian mission" style="width:50%;border-radius:12px;display:block">
+        <p style="font-size:13px;color:#7a90a8;margin:8px 0 0;font-style:italic">Dr. Ramin treating a patient during a DHOP humanitarian mission abroad.</p>
+      </div>
+      <p>Dr. Ramin prides himself on clear and open communication, making sure every patient feels as comfortable and informed as possible throughout their care. Outside of dentistry, he enjoys working out and hosting dinners with friends.</p>
+
+      <div style="background:var(--blue-pale);border-radius:12px;padding:28px;margin-top:28px">
+        <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 16px">Education & Training</h3>
+        <ul class="credential-list">
+          <li>B.A., University of California, Los Angeles (UCLA) — 2013</li>
+          <li>D.D.S., University of Southern California (USC) — 2017</li>
+          <li>Certificate in Periodontics, Boston University — Advanced Specialty Education</li>
+          <li>Training in Robot-Guided & Fully Guided Implant Surgery</li>
+          <li>Advanced Training in Microsurgery</li>
+        </ul>
+      </div>
+
+      <div style="background:var(--blue-pale);border-radius:12px;padding:28px;margin-top:20px">
+        <h3 style="color:var(--navy);font-size:1.1rem;margin:0 0 16px">Professional Memberships & Service</h3>
+        <ul class="credential-list">
+          <li>American Dental Association (ADA)</li>
+          <li>California Dental Association (CDA)</li>
+          <li>Santa Barbara-Ventura County Dental Society</li>
+          <li>Dental Humanitarian Outreach Program (DHOP) — Philippines, Cambodia, Panama & Belize</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:28px">
+        <p style="font-size:12px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:#5a7090;margin-bottom:20px">Member Organizations</p>
+        <div style="display:flex;align-items:center;gap:36px;flex-wrap:wrap">
+          <img src="ADA.png" alt="American Dental Association" style="height:72px;width:auto;object-fit:contain;mix-blend-mode:multiply">
+          <img src="CDA.png" alt="California Dental Association" style="height:72px;width:auto;object-fit:contain;mix-blend-mode:multiply">
+          <img src="Ventura%20society.jpeg" alt="Santa Barbara-Ventura County Dental Society" style="height:72px;width:auto;object-fit:contain;mix-blend-mode:multiply">
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="doctor-photo">
+        <img src="https://placehold.co/500x650/0d2b5e/dbeeff?text=Doctor+Photo" alt="Periodontist"/>
+      </div>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn-blue" style="width:100%" onclick="showPage('contact')">Request an Appointment</button>
+      </div>
+    </div>
+  </div>
+  <!-- Why a Periodontist? -->
+  <div style="background:var(--navy);padding:72px 24px">
+    <div style="max-width:860px;margin:0 auto;text-align:center">
+      <p style="color:var(--blue-light);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:14px">Specialty Matters</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;margin:0 0 32px;letter-spacing:-0.02em">Why a Periodontist?</h2>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.08rem;line-height:1.8;margin:0 0 20px">A periodontal residency is a rigorous, full-time three-year program dedicated entirely to the surgical procedures we perform every day — dental implants, gum surgery, bone grafting, and the structures that support your teeth. During those three years, that is all we do. We are not learning a little bit of everything; we are mastering a very specific set of skills with thousands of hours of hands-on training under expert supervision.</p>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.08rem;line-height:1.8;margin:0 0 20px">By contrast, many general dentists who perform implants and gum procedures have attended weekend courses — two or three days of instruction before returning to practice. We respect our general dentist colleagues deeply, and many are talented clinicians. But a weekend course cannot replicate years of focused surgical training.</p>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.08rem;line-height:1.8;margin:0">The data reflects this difference. Studies consistently show that implants placed by specialists have lower failure rates and fewer long-term complications than those placed without equivalent training. Many implants placed with limited experience may appear fine in the short term — but they are significantly more likely to fail over time. When it comes to a procedure that is meant to last a lifetime, experience and specialization are not just a preference. They are the standard of care.</p>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px;border-top:1px solid rgba(255,255,255,0.1)"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span>. All rights reserved.</p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ IMPLANTS: EXTRACTION & SOCKET PRESERVATION ═══════════════════════════ -->
+<div class="page" id="page-implants-extraction">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › Extraction & Socket Preservation</div>
+
+  <!-- PART 1: THE PROBLEM -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>When a Tooth Cannot Be Saved</h2>
+          <p>Sometimes a tooth is too damaged, decayed, or infected to be restored. In these cases, extraction is the right decision — but what happens immediately after the tooth is removed is just as important as the extraction itself.</p>
+          <p>When a tooth is lost, the surrounding bone begins to resorb within days. Without the tooth root stimulating the jawbone, up to 50% of bone volume can be lost within the first year. This bone loss can complicate or even prevent future implant placement, requiring more extensive and costly procedures down the road.</p>
+          <p>Acting at the time of extraction gives us the best opportunity to preserve the bone that is already there — setting the foundation for a seamless implant in the months ahead.</p>
+        </div>
+        <div class="tp-media">
+          <img src="socket%20preservation.webp" alt="Socket preservation procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">Our Approach</span>
+          <h2>Extraction & Socket Preservation</h2>
+          <p style="color:rgba(255,255,255,0.78)">Socket preservation (also called alveolar ridge preservation) is a procedure performed at the time of tooth removal. Bone grafting material is placed directly into the empty socket immediately after extraction to maintain the shape and volume of the jawbone while it heals.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Gentle Extraction</h4><p>The tooth is carefully removed with techniques that minimize trauma to the surrounding bone and soft tissue.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Socket Grafting</h4><p>Bone graft material is placed into the socket immediately, filling the space left by the tooth root and preventing collapse.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Membrane Placement</h4><p>A protective collagen membrane is placed over the graft to shield it and guide proper bone regeneration.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Healing Period</h4><p>The site heals over approximately 4 months, allowing the graft to mature into solid, healthy bone ready to support an implant.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="socke%20pres%202.jpeg" alt="Socket preservation bone grafting" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Socket Preservation</h2>
+          <ul class="tp-benefits-list">
+            <li>Prevents significant bone loss after extraction</li>
+            <li>Maintains ideal ridge shape for future implant placement</li>
+            <li>Reduces the need for more extensive bone grafting later</li>
+            <li>Preserves the natural contour of your gum and jaw</li>
+            <li>Performed at the same appointment as the extraction</li>
+            <li>Minimizes overall treatment time and cost</li>
+            <li>Creates the best possible foundation for a life-long implant</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient after socket preservation" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ IMPLANTS: WHAT ARE THEY ═══════════════════════════ -->
+<div class="page" id="page-implants-what">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › What Are Dental Implants?</div>
+
+  <!-- PART 1: THE PROBLEM -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>Living With Missing Teeth</h2>
+          <p>When a tooth is lost — whether from decay, gum disease, or injury — the consequences go far beyond appearance. The surrounding bone begins to shrink immediately, neighboring teeth drift, and bite force drops significantly. Over time, even facial structure can change.</p>
+          <p>Traditional bridges require grinding down healthy adjacent teeth. Removable dentures slip, limit diet, and continue to allow bone loss underneath. Neither solution addresses the root cause: the absence of a tooth root stimulating the jaw.</p>
+          <p>Without intervention, bone loss accelerates each year — making future treatment more complex and costly. The longer the wait, the more bone is lost.</p>
+        </div>
+        <div class="tp-media">
+          <img src="implant.webp" alt="Dental implant cross-section showing crown, abutment, titanium post and jawbone" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">Our Solution</span>
+          <h2>What Is a Dental Implant?</h2>
+          <p style="color:rgba(255,255,255,0.78)">A dental implant is a small titanium post that replaces the missing tooth root — permanently anchored into the jawbone. It fuses with bone through <strong style="color:#fff">osseointegration</strong>, creating a stable, lifelong foundation for a crown, bridge, or denture.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Titanium Post (Implant Fixture)</h4><p>Surgically placed into the jawbone exactly where the tooth root once was.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Abutment Connector</h4><p>Attaches to the top of the implant post once osseointegration is complete.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Custom Porcelain Crown</h4><p>Precision-matched to your natural teeth — indistinguishable in look and function.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="3%20part%20implant.jpg" alt="3-part dental implant diagram showing Crown, Abutment, and Implant post" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Dental Implants</h2>
+          <ul class="tp-benefits-list">
+            <li>Look, feel, and function like natural teeth</li>
+            <li>Preserve jawbone and prevent facial collapse</li>
+            <li>No need to alter adjacent healthy teeth</li>
+            <li>Restore full chewing force</li>
+            <li>Eliminate embarrassing slippage</li>
+            <li>Brush and floss normally — no special tools</li>
+            <li>95%+ long-term success rate</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule an Implant Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after dental implant treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ IMPLANT PLACEMENT ═══════════════════════════ -->
+<div class="page" id="page-implants-placement">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › Dental Implant Placement</div>
+
+  <!-- PART 1: THE PROBLEM -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Need</span>
+          <h2>When Is Implant Placement Needed?</h2>
+          <p>Tooth loss — from decay, fracture, gum disease, or trauma — leaves a gap that affects your bite, speech, and confidence. More critically, the underlying bone begins resorbing within weeks of extraction, making early placement essential.</p>
+          <p>Unlike a bridge that spans the gap or a denture that rests on the gum, an implant directly replaces the missing root. This is the only solution that stops bone loss.</p>
+          <p>Early intervention preserves maximum bone volume, simplifies the surgical procedure, and provides the best long-term outcomes. The sooner an implant is placed, the easier the process.</p>
+        </div>
+        <div class="tp-media">
+          <img src="implant.webp" alt="Dental implant placement cross-section" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>Implant Surgery — Step by Step</h2>
+          <p style="color:rgba(255,255,255,0.78)">Using 3D CBCT imaging and digital surgical guides, Dr. Ramin custom plans every implant before the first incision is made. When a tooth still needs to be removed, the full process from extraction to final crown can take up to 9 months — and possibly longer depending on individual healing.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>3D Imaging & Planning</h4><p>CBCT scan maps bone volume, density, and anatomy for precise digital planning and to assess whether extraction and bone grafting are needed before implant placement.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Tooth Extraction (when needed)</h4><p>If a failing or damaged tooth is still present, it is gently removed. Whenever possible, a socket preservation bone graft is placed at the same appointment to maintain the bone volume needed for the implant.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Bone Graft Healing — ~4 Months</h4><p>After extraction and grafting, the site is allowed to heal for approximately 4 months. During this time the graft matures into solid bone capable of supporting an implant. A temporary solution may be provided during this phase.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Anesthesia & Comfort</h4><p>Local anesthesia and optional sedation ensure a completely pain-free implant surgery experience.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Implant Placement</h4><p>Dr. Ramin follows the plan of his 3D planning to direct the drill to the planned position and angle. The titanium implant is threaded in with calibrated torque for immediate stability.</p></div></li>
+            <li><div class="tp-step-num">6</div><div class="tp-step-body"><h4>Osseointegration (3–6 months)</h4><p>The implant fuses with the surrounding bone, forming a permanent root-like anchor. In cases requiring extraction and grafting, the total timeline from start to crown can reach 9 months or longer.</p></div></li>
+            <li><div class="tp-step-num">7</div><div class="tp-step-body"><h4>Crown Delivery</h4><p>Once osseointegration is confirmed, your restorative dentist attaches a custom crown. Your new permanent tooth is complete.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="implant%20anatomy.jpeg" alt="Implant anatomy diagram" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why Choose a Periodontist</span>
+          <h2>Benefits of Specialist-Placed Implants</h2>
+          <ul class="tp-benefits-list">
+            <li>Specialist training in bone and gum anatomy</li>
+            <li>Lower complication and failure rates</li>
+            <li>Bone grafting expertise when needed</li>
+            <li>In-office sedation available</li>
+            <li>Immediate loading protocols when eligible</li>
+            <li>Predictable, long-term results</li>
+            <li>Highest standard of surgical precision</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Book Your Implant Evaluation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after implant placement" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ SINUS LIFT ═══════════════════════════ -->
+<div class="page" id="page-implants-sinus">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › Sinus Lift</div>
+
+  <!-- PART 1: THE PROBLEM -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>Not Enough Bone for Upper Jaw Implants?</h2>
+          <p>When back teeth in the upper jaw are lost, the surrounding bone resorbs and the maxillary sinus — the large air cavity just above — gradually expands downward into that space. This process, called <strong>sinus pneumatization</strong>, can leave as little as 3–4 mm of bone where a minimum of 8mm is needed for an implant.</p>
+          <p>Many patients in this situation have been told they cannot have implants in the upper back jaw. A <strong>sinus lift</strong> (sinus augmentation) changes that — rebuilding the bone platform needed for safe, lasting implant placement.</p>
+          <p>The good news: <strong>approximately 90% of patients who need a sinus lift only need the simpler internal approach</strong>, which can be performed at the same time as implant placement — with no additional healing time and no noticeable difference in the patient experience.</p>
+        </div>
+        <div class="tp-media">
+          <img src="sinus%20lift%20(internal)%20with%20implant.webp" alt="Internal sinus lift with simultaneous implant placement" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: INTERNAL SINUS LIFT -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <div style="background:#7ec8f0;color:#0d2b5e;font-weight:700;font-size:13px;padding:4px 14px;border-radius:20px;display:inline-block;margin-bottom:16px">~90% of Patients</div>
+          <span class="tp-label">The Procedure</span>
+          <h2>Internal Sinus Lift</h2>
+          <p style="color:rgba(255,255,255,0.78)">Performed entirely through the implant site itself using a gentle osteotome technique. The implant is placed at the exact same appointment — patients typically notice no difference compared to a regular implant procedure.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>3D CBCT Imaging</h4><p>Precisely measures residual bone height and sinus anatomy to confirm the internal approach is appropriate.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Osteotome Elevation</h4><p>Through the implant socket, a specialized instrument gently lifts the sinus floor just enough to create space for the bone graft and implant.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Bone Graft Placement</h4><p>A small volume of bone graft material is placed to fill the newly created space beneath the sinus membrane.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Same-Day Implant Placement</h4><p>The titanium implant is immediately inserted at the same appointment. No additional healing phase is required before placement.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Osseointegration & Crown</h4><p>The implant integrates with surrounding bone over 3–6 months, then your restorative dentist places the permanent crown.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="internal%20lift.jpg" alt="Internal sinus lift procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: LATERAL SINUS LIFT -->
+  <div class="tp-section tp-problem" style="background:#f8f4f0;">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <div style="background:#0d2b5e;color:#fff;font-weight:700;font-size:13px;padding:4px 14px;border-radius:20px;display:inline-block;margin-bottom:16px">~10% of Patients</div>
+          <span class="tp-label" style="color:var(--blue)">The Procedure</span>
+          <h2 style="color:var(--navy)">Lateral Sinus Lift</h2>
+          <p>Reserved for cases with very minimal residual bone (under 4 mm). A small window is carefully made in the side wall of the sinus, allowing a larger volume of bone graft to be precisely placed. This approach requires a separate healing phase before implants can be placed.</p>
+          <ul class="tp-steps" style="margin-top:20px">
+            <li style="display:flex;gap:16px;align-items:flex-start"><div style="width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">1</div><div><h4 style="margin:0 0 4px;color:var(--navy)">3D CBCT Imaging</h4><p style="margin:0;color:#4a6080;font-size:14px">Confirms that residual bone is under 4 mm, requiring the lateral window approach.</p></div></li>
+            <li style="display:flex;gap:16px;align-items:flex-start;margin-top:16px"><div style="width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">2</div><div><h4 style="margin:0 0 4px;color:var(--navy)">Lateral Window Creation</h4><p style="margin:0;color:#4a6080;font-size:14px">A small access window is created in the lateral wall of the sinus under local anesthesia, allowing direct visualization and access to the sinus cavity.</p></div></li>
+            <li style="display:flex;gap:16px;align-items:flex-start;margin-top:16px"><div style="width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">3</div><div><h4 style="margin:0 0 4px;color:var(--navy)">Large-Volume Bone Graft</h4><p style="margin:0;color:#4a6080;font-size:14px">The sinus membrane is elevated and a substantial volume of bone graft is packed into the space. A collagen membrane covers the window to protect the graft.</p></div></li>
+            <li style="display:flex;gap:16px;align-items:flex-start;margin-top:16px"><div style="width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">4</div><div><h4 style="margin:0 0 4px;color:var(--navy)">Graft Maturation (4–9 Months)</h4><p style="margin:0;color:#4a6080;font-size:14px">The site heals and the graft matures into mature bone volume sufficient for implant anchorage.</p></div></li>
+            <li style="display:flex;gap:16px;align-items:flex-start;margin-top:16px"><div style="width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">5</div><div><h4 style="margin:0 0 4px;color:var(--navy)">Implant Placement & Crown</h4><p style="margin:0;color:#4a6080;font-size:14px">Once sufficient bone volume is confirmed by CBCT, implants are placed and the restoration proceeds as normal.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="lateral%20lift.jpg" alt="Lateral sinus lift surgical procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 4: THE BENEFITS -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of a Sinus Lift</h2>
+          <ul class="tp-benefits-list">
+            <li>90% of patients treated with a single same-day procedure</li>
+            <li>Implant placed at the same visit in most cases</li>
+            <li>Enables implants where previously impossible</li>
+            <li>Long-term bone volume preservation</li>
+            <li>95%+ predictable success rate</li>
+            <li>Eliminates need for removable partial dentures</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Ask If You're a Candidate</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after sinus lift and implants" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ OVERDENTURE ═══════════════════════════ -->
+<div class="page" id="page-implants-overdenture">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › Implant-Supported Overdenture</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>The Struggles of Traditional Dentures</h2>
+          <p>Conventional removable dentures rest on the gum ridge and are held in place by suction or adhesive paste. While they restore appearance, they fall dramatically short on function. Studies show that denture wearers retain only 20–30% of their original chewing force, making it difficult — sometimes impossible — to eat fibrous vegetables, meats, or crusty breads. This dietary restriction carries real nutritional consequences over time.</p>
+          <p>Beyond eating limitations, loose dentures create social anxiety. Slippage while speaking, laughing, or eating in public is a common source of embarrassment that leads many patients to withdraw from social situations. Repeated movement also causes chronic sore spots and denture stomatitis from friction against the gum tissue.</p>
+          <p>Perhaps most critically, traditional dentures do nothing to address ongoing bone loss. Without tooth roots or implants stimulating the jawbone, the ridge beneath the denture continues to shrink — often requiring new dentures every few years as fit deteriorates. An implant-supported overdenture solves all of these problems at a far more accessible price point than a fully fixed restoration.</p>
+        </div>
+        <div class="tp-media">
+          <img src="overdenture%20implant.jpg" alt="Implant-supported overdenture snap-in attachment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">An implant-supported overdenture snaps onto 2–4 strategically placed implants using precision ball attachments or a rigid locator bar. The denture is removable for easy cleaning, yet locked firmly in place during use — eliminating all movement and restoring genuine confidence.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Comprehensive Planning</h4><p>CBCT 3D imaging evaluates bone volume and density to determine the optimal number and position of implants for your jaw anatomy.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Implant Placement</h4><p>Two to four titanium implants are placed at precisely planned positions in the jawbone under local anesthesia and optional sedation.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Osseointegration Healing</h4><p>Over 3–6 months the implants fuse securely with the surrounding bone, establishing the stable anchoring foundation for the attachment system.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Attachment Connection</h4><p>Ball-and-socket abutments or a precision milled bar are connected to the implants, providing the retentive interface for the overdenture.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Overdenture Delivery</h4><p>A custom-fabricated denture with incorporated retaining clips is fitted, adjusted for bite, and snapped into place — you leave with a confident, stable smile.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="overdenture%202.jpg" alt="Implant-supported overdenture procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of an Implant-Supported Overdenture</h2>
+          <ul class="tp-benefits-list">
+            <li>Eliminates embarrassing slippage and movement</li>
+            <li>Restores 60–70% of natural chewing force</li>
+            <li>Significantly more affordable than fixed full-arch restorations</li>
+            <li>Stimulates jawbone to prevent continued bone loss</li>
+            <li>Easy to remove nightly for thorough cleaning</li>
+            <li>Dramatically improved speech clarity and confidence</li>
+            <li>Removes the need for messy adhesives or pastes in most cases</li>
+            <li>Minimizes pressure sores on the gum tissue</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling with implant-supported overdenture" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ ALL-ON-X ═══════════════════════════ -->
+<div class="page" id="page-implants-allon">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › All-On-X Full-Arch Implants</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>Living With Failing or Missing Teeth</h2>
+          <p>For patients with multiple failing teeth, advanced decay, or a completely edentulous (toothless) arch, the impact on quality of life is profound. Chewing becomes limited to soft foods. Speaking clearly requires constant vigilance. Confidence erodes, and with it, social participation and professional presence. Traditional dentures offer partial relief but introduce new problems — instability, bone loss, and the psychological weight of wearing an appliance that never quite feels like your own teeth.</p>
+          <p>What many patients do not know is that advanced bone loss — the very reason they were told they "cannot have implants" — is not an automatic disqualifier for full-arch implant reconstruction. The All-On-X technique was specifically engineered to work with compromised bone by using angled posterior implants that engage denser, more anterior bone. This eliminates the need for extensive bone grafting in the majority of cases.</p>
+          <p>The consequences of leaving a failing arch untreated compound quickly. Remaining bone shrinks, neighboring structures shift, and facial height collapses as vertical dimension is lost. Every month of delay narrows the treatment window. All-On-X offers a definitive, fixed solution that stops this cascade — often in a single surgical appointment.</p>
+        </div>
+        <div class="tp-media">
+          <img src="all%20on%20x%20.jpg" alt="All-On-X full arch implant configuration" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">All-On-X uses a precisely angled implant configuration to maximize bone contact without requiring grafting. If the implants achieve sufficient stability at the time of placement, a full-arch provisional bridge can be loaded the same day as surgery — you arrive with a failing arch and may leave with a fixed smile.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Comprehensive Planning</h4><p>Full facial analysis, CBCT 3D imaging, digital smile design, and guided surgical planning ensure every implant is placed with sub-millimeter precision before surgery begins.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Extractions & Arch Preparation</h4><p>Any remaining failing teeth are removed during the same appointment. The surgical site is prepared and contoured for ideal implant positioning.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Angled Implant Placement</h4><p>Four to six titanium implants are placed using the All-On configuration — two anterior vertical implants and two to four posterior implants angled 15–30° to maximize bone engagement and avoid anatomical structures.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Immediate Loading</h4><p>If sufficient implant stability is achieved, a full-arch provisional bridge is attached the same day, giving you functional, attractive teeth before you leave the office.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Osseointegration Period</h4><p>Over 4–6 months, the implants fully fuse with the surrounding bone. Dietary restrictions apply during this phase to protect the provisional bridge.</p></div></li>
+            <li><div class="tp-step-num">6</div><div class="tp-step-body"><h4>Definitive Zirconia Bridge</h4><p>Your final, custom-milled zirconia bridge is fitted, adjusted for perfect bite and aesthetics, and permanently attached — completing your transformation.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="all%20on%20x%202.jpg" alt="All-On-X implant procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of All-On-X</h2>
+          <ul class="tp-benefits-list">
+            <li>Complete arch restored to function in a single day</li>
+            <li>Fixed — permanently attached, not removable like dentures</li>
+            <li>Works with significantly reduced bone volume</li>
+            <li>No extensive bone grafting required in most cases</li>
+            <li>Provisional teeth can often be delivered the same day as surgery if implant stability allows</li>
+            <li>Natural appearance, function, and feel</li>
+            <li>Halts ongoing jawbone loss immediately</li>
+            <li>Life-changing improvement in confidence and quality of life</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after All-On-X full arch restoration" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ FAILING IMPLANTS ═══════════════════════════ -->
+<div class="page" id="page-implants-failing">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › Failing Implants & Peri-Implantitis</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>When an Implant Begins to Fail</h2>
+          <p>Dental implants have an excellent long-term track record, but they are not immune to disease. Peri-implantitis — an inflammatory bacterial infection of the tissues surrounding a dental implant — is the leading cause of late implant failure, affecting many implants over time. Like gum disease around natural teeth, it begins silently and progresses without pain until significant bone loss has already occurred.</p>
+          <p>Peri-implantitis is driven by a biofilm of bacteria that colonizes the implant surface below the gum line. Risk factors include a history of periodontal disease, poor oral hygiene, smoking, uncontrolled diabetes, and insufficient bone at the time of placement. Unlike natural teeth, implants lack a periodontal ligament — meaning they have less biological defense against bacterial invasion, and bone loss once it begins can be rapid.</p>
+          <p>Warning signs include bleeding or pus around the implant, swollen or red gum tissue, a chronic bad taste or odor, increasing pocket depth on probing, and on X-ray, a telltale "saucer-shaped" pattern of bone destruction around the implant body. Implant mobility is a late finding and often indicates that salvage is no longer possible. This is why early identification by a periodontist is critical — the sooner treatment begins, the better the chance of saving the implant entirely.</p>
+        </div>
+        <div class="tp-media">
+          <img src="Periimplantitis.webp" alt="Peri-implantitis condition around dental implant" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">As periodontists, diagnosing and treating peri-implantitis is a core specialty. Treatment is staged based on disease severity — from non-surgical decontamination for early cases, to regenerative or resective surgery for advanced bone loss. Our goal is always to save the implant and restore periodontal health.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Comprehensive Diagnosis</h4><p>Probing depths, X-ray imaging, and clinical examination precisely map the extent of bone loss and determine the stage of peri-implantitis before any treatment is planned.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Non-Surgical Decontamination</h4><p>For early-stage disease, implant surface decontamination using ultrasonic scalers and titanium curettes removes the bacterial biofilm with minimal tissue disruption.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Surgical Intervention</h4><p>For moderate to advanced cases, surgical access allows complete debridement of the implant surface and either resective recontouring or regenerative bone grafting to restore lost structure.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Extraction in Severe Cases</h4><p>In more severe cases where the implant cannot be saved, removal is necessary to prevent further bone loss. These cases often require extensive bone grafting to rebuild the site for future treatment — work that is best handled by a periodontist. If you are facing a failing implant, it is strongly recommended to be seen by a periodontal specialist as early as possible.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="periimplantitis%202.jpg" alt="Peri-implantitis treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Early Peri-Implantitis Treatment</h2>
+          <ul class="tp-benefits-list">
+            <li>Stops progressive bone destruction before it becomes irreversible</li>
+            <li>Preserves your implant — and your investment</li>
+            <li>Avoids the complexity and cost of re-implantation surgery</li>
+            <li>Non-surgical options effective in early-stage disease</li>
+            <li>Laser decontamination minimizes trauma to surrounding tissue</li>
+            <li>Regenerative bone grafting can restore lost bone structure</li>
+            <li>Protects adjacent natural teeth from infection spread</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after failing implant treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ GUM RECESSION ═══════════════════════════ -->
+<div class="page" id="page-perio-recession">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Periodontics › Gum Recession Treatment</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>What Is Gum Recession?</h2>
+          <p>Gum recession is the progressive displacement of the gingival margin away from the crown of the tooth, exposing the root surface beneath. Unlike the enamel-covered crown, tooth roots are covered only by cementum — a far softer, more porous material that is highly susceptible to bacterial acid, abrasion, and decay. Once exposed, a root can develop a cavity with alarming speed, and the hypersensitivity to temperature and touch can become debilitating.</p>
+          <p>Recession has multiple causes. Aggressive toothbrushing with medium or hard bristles physically wears away the gum margin over years. Periodontal disease destroys the supporting bone and ligament, causing the gum to follow. Tooth malposition — teeth sitting outside the natural arch — creates zones of thin, fragile gingiva prone to recession. Bruxism, tongue piercings, orthodontic tooth movement, and genetic predisposition to thin gingival biotype all contribute as well.</p>
+          <p>Many patients are unaware of recession until a dentist mentions it or sensitivity becomes noticeable. By the time symptoms appear, several millimeters of root may already be exposed. Left untreated, recession tends to progress — creating increasing sensitivity, escalating decay risk, aesthetic changes to the smile, and ultimately compromised tooth stability as the supporting attachment is lost.</p>
+        </div>
+        <div class="tp-media">
+          <img src="tissue%20grafting.webp" alt="Tissue grafting procedure for gum recession treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">Modern gum grafting uses minimally invasive techniques — most notably the tunnel technique and connective tissue grafting — to restore the gum line with remarkable precision and minimal discomfort. Multiple teeth can often be treated in a single appointment, with most patients returning to normal activity within days.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Recession Evaluation</h4><p>Periodontal probing, tissue biotype assessment, and imaging quantify recession depth and determine the most appropriate grafting technique for each site.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Graft Material Selection</h4><p>A connective tissue graft from the palate provides the gold standard outcome. When palatal tissue is insufficient or patients prefer to avoid a donor site, processed cadaveric tissue (Alloderm) delivers excellent results.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Tunnel Preparation</h4><p>A micro-tunnel is created beneath the existing gum tissue without releasing the papillae, preserving blood supply and dramatically improving healing speed and comfort.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Graft Placement & Suturing</h4><p>The graft is threaded into the tunnel and positioned to fully cover the exposed root surface. Fine sutures advance the gum tissue coronally and hold everything in place.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Healing & Integration</h4><p>New keratinized gingival tissue integrates over 4–6 weeks. The final result — increased gum height, reduced sensitivity, and improved aesthetics — is stable long-term.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="CTG.jpg" alt="Connective tissue graft procedure for gum recession" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Gum Recession Treatment</h2>
+          <ul class="tp-benefits-list">
+            <li>Eliminates debilitating root sensitivity to hot, cold, and touch</li>
+            <li>Shields roots from rapid decay and acid erosion</li>
+            <li>Arrests further recession before more root is lost</li>
+            <li>Restores a natural, even gum line for improved smile aesthetics</li>
+            <li>Minimally invasive tunnel technique — no large incisions</li>
+            <li>Rapid recovery, most patients resume normal activities in days</li>
+            <li>Multiple teeth corrected in a single procedure</li>
+            <li>Long-lasting, predictable results backed by decades of research</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after gum recession treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ PERIODONTAL DISEASE TREATMENT ═══════════════════════════ -->
+<div class="page" id="page-perio-disease">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Periodontics › Periodontal Disease Treatment</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>Understanding Periodontal Disease</h2>
+          <p>Periodontal disease is a chronic bacterial infection of the structures supporting your teeth — the gums, periodontal ligament, cementum, and underlying alveolar bone. It begins as gingivitis, a reversible inflammation of the gum tissue caused by plaque accumulation at the gumline. At this early stage, the infection is confined to the soft tissue and causes no permanent damage. Without proper treatment, however, gingivitis progresses to periodontitis, where the bacterial toxins and your body's own immune response begin destroying the bone and attachment holding teeth in place.</p>
+          <p>The scale of the problem is significant — the CDC estimates that nearly half of American adults over 30 have some form of periodontal disease, with rates rising sharply in those over 65. Risk is compounded by smoking, uncontrolled diabetes, certain medications, genetic susceptibility, and systemic inflammatory conditions. Critically, the link between periodontal disease and systemic health is well-established: active periodontitis is associated with increased risk of cardiovascular disease, poorly controlled blood sugar in diabetics, adverse pregnancy outcomes, and respiratory complications.</p>
+          <p>The insidious nature of the disease is that it is largely painless until advanced stages. By the time a patient notices loose teeth, persistent bad breath, bleeding gums, or shifting bite, substantial bone loss has often already occurred. This makes regular periodontal screening by a specialist — and prompt treatment when disease is identified — genuinely important for both oral and systemic health.</p>
+        </div>
+        <div class="tp-media">
+          <img src="periodontitis.jpg" alt="Periodontal disease with deep pockets and bone loss" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">We use both non-surgical and surgical approaches — always starting conservatively and escalating only when needed to achieve the best long-term outcomes.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Comprehensive Periodontal Charting</h4><p>A full-mouth periodontal evaluation records pocket depths, bleeding points, furcation involvement, bone levels, and tooth mobility to establish baseline disease staging and guide the treatment plan.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Scaling & Root Planing</h4><p>Non-surgical deep cleaning removes calculus, bacterial biofilm, and endotoxins from root surfaces below the gumline using ultrasonic and hand instruments.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Re-evaluation & Surgical Planning</h4><p>At 4–6 weeks post-treatment, sites are re-examined. Pockets that have not adequately responded to non-surgical therapy are candidates for osseous surgery or regenerative procedures, which may include the use of biologics such as Emdogain to help promote tissue attachment and regeneration.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Bone Regeneration (when indicated)</h4><p>Bone grafts and barrier membranes placed in infrabony defects can stimulate regrowth of lost supporting bone — partially reversing the structural damage of advanced disease.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Supportive Periodontal Therapy</h4><p>Quarterly maintenance appointments are the cornerstone of long-term success, maintaining disease stability and catching any recurrence early before it progresses.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="osseous.jpg" alt="Periodontal disease treatment procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Periodontal Disease Treatment</h2>
+          <ul class="tp-benefits-list">
+            <li>Stops bone and attachment loss before teeth are lost</li>
+            <li>Reduces pocket depths for easier long-term maintenance</li>
+            <li>May lowers systemic disease risk — heart disease, diabetes complications</li>
+            <li>Eliminates chronic halitosis caused by bacterial infection</li>
+            <li>Saves teeth by helping prevent extracting teeth in the future</li>
+            <li>Non-surgical first-line options preserve comfort and recovery time</li>
+
+            <li>Structured maintenance prevents recurrence and tooth loss</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after periodontal disease treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ CROWN LENGTHENING ═══════════════════════════ -->
+<div class="page" id="page-perio-crown">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Periodontics › Crown Lengthening</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>When There Isn't Enough Tooth to Work With</h2>
+          <p>Crown lengthening addresses two distinct but related clinical problems, both involving the amount of tooth structure visible or accessible above the gumline. In restorative cases, a tooth may be broken below the gumline from fracture or extensive decay, leaving insufficient tooth structure for a crown or other restoration to grip. Attempting to place a crown without adequate tooth structure above the biological width — the critical 3mm zone of attachment below the gum — results in chronically inflamed gums, restoration failure, and eventual tooth loss.</p>
+          <p>The second indication is aesthetic: a "gummy smile" occurs when excess gum tissue partially covers the crowns of the front teeth, making them appear short and square even when the underlying tooth structure is perfectly healthy. This altered passive eruption is a developmental variation where the gum line simply did not recede to its proper level during growth. The result is a smile where patients feel self-conscious about showing too much gum and too little tooth — a disproportion that cannot be corrected with orthodontics, whitening, or veneers alone.</p>
+          <p>In both cases, the solution is the same: a precisely planned surgical reshaping of the gum and bone to expose the correct amount of tooth structure. Crown lengthening is one of the most impactful procedures in periodontal surgery — with immediate, visible, and permanent results. A tooth that previously could not support a crown becomes restorable; a gummy smile is transformed into a confident, proportionate one.</p>
+        </div>
+        <div class="tp-media">
+          <img src="Crown%20lengthening.webp" alt="Crown lengthening before treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">Crown lengthening is a single outpatient surgical procedure performed under local anesthesia. Using digital planning, precise incisions, and careful bone recontouring, the periodontist repositions the gum and bone to the ideal level — creating a result that is immediately visible and stable for life.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Digital Treatment Planning</h4><p>Measurements of the existing tooth structure, bone levels, and desired gum position are mapped to plan the exact amount of tissue removal needed for proper biological width and aesthetics.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Local Anesthesia</h4><p>The treatment area is thoroughly numbed. Optional sedation is available for patients who prefer additional comfort during the procedure.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Incisions & Flap Reflection</h4><p>Precise incisions release the gum tissue, which is gently folded back to expose the underlying bone and the full extent of the tooth root and crown structure.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Osseous Recontouring</h4><p>The alveolar bone is carefully reshaped to establish the biologically correct distance between the new bone crest and the intended gum margin, ensuring healthy long-term attachment.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Gum Repositioning & Suturing</h4><p>The gum tissue is precisely repositioned at the newly established level and sutured. Healing time varies by location: non-esthetic areas typically require 4–6 weeks before the gum position is stable for crown placement, while esthetic areas may require up to 3–6 months of healing before final restorations or photography to allow the tissue to fully mature and settle.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="crown-lengthening%202.jpg" alt="Crown lengthening surgical procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Crown Lengthening</h2>
+          <ul class="tp-benefits-list">
+            <li>Enables secure, long-lasting crown or restoration placement</li>
+            <li>Corrects "gummy smile" for a more proportionate appearance</li>
+            <li>Single outpatient procedure with lasting permanent results</li>
+            <li>Performed comfortably under local anesthesia</li>
+            <li>Saves teeth that would otherwise require extraction</li>
+            <li>Establishes the correct biological width for long-term gum health</li>
+            <li>Improves symmetry and harmony of the entire smile line</li>
+            <li>Creates stable gum margin ideal for porcelain veneers or crowns</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after crown lengthening" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ OSSEOUS SURGERY ═══════════════════════════ -->
+<div class="page" id="page-perio-osseous">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Periodontics › Osseous Surgery</div>
+
+  <!-- PART 1: THE PROBLEM (white bg) -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>When Gum Disease Reaches the Bone</h2>
+          <p>Advanced gum disease doesn't just affect your gums — it attacks the bone that holds your teeth in place. As the disease progresses, deep pockets form around your teeth where bacteria hide and thrive, well beyond what brushing, flossing, or even a professional cleaning can reach.</p>
+          <p>These deep pockets allow bacteria to keep destroying bone and gum tissue even after a thorough cleaning. Left untreated, this leads to loose teeth and eventually tooth loss.</p>
+          <p>When pockets reach a certain depth, cleaning alone is no longer enough. Osseous surgery gives us direct access to the roots and bone, allowing us to thoroughly clean the area and reshape the bone so it can finally heal. It's not a last resort — it's simply the right treatment for this stage of disease, and the best way to protect your teeth long-term.</p>
+        </div>
+        <div class="tp-media">
+          <img src="perio%20disease.jpg" alt="Osseous surgery debridement of deep periodontal pockets" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT (navy bg) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">Osseous surgery — also called pocket reduction surgery or resective periodontal surgery — surgically accesses the diseased bone, achieves complete root debridement, and reshapes the bone to eliminate pocket architecture. The result is reduced pocket depths and a stable, maintainable periodontal environment.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Local Anesthesia & Comfort</h4><p>The surgical area is thoroughly numbed with local anesthetic. Oral sedation or nitrous is available for patients who prefer to be relaxed throughout the procedure.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Flap Reflection</h4><p>Precisely placed incisions allow the gum tissue to be gently folded back, fully exposing the tooth roots and the diseased bone beneath — providing the access that no non-surgical instrument can achieve.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Complete Root Debridement</h4><p>With direct visualization, every surface of every root is meticulously scaled and root planed. All calculus deposits, granulation tissue, and bacterial biofilm are removed under magnification.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Osseous Recontouring</h4><p>Irregular bone craters and ledges are carefully reshaped using hand and rotary instruments to create smooth, gradual bone contours that eliminate the pocket architecture bacteria colonize.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Regenerative Grafting (when indicated)</h4><p>Infrabony defects — vertical bone craters adjacent to roots — are excellent candidates for regenerative bone grafting combined with barrier membranes, which can partially restore lost bone height. Biologics such as Emdogain may also be used to help promote tissue attachment and regeneration.</p></div></li>
+            <li><div class="tp-step-num">6</div><div class="tp-step-body"><h4>Flap Closure & Recovery</h4><p>Gum tissue is repositioned at the new bone level and sutured. Pocket depths are typically reduced by 2–4mm. Healing proceeds over 4–6 weeks with post-operative antibiotics and antimicrobial rinses.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="osseous.jpg" alt="Osseous surgery bone recontouring procedure" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS (light blue bg) -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Osseous Surgery</h2>
+          <ul class="tp-benefits-list">
+            <li>Eliminates deep periodontal pockets that non-surgical treatment cannot reach</li>
+            <li>Complete root debridement under direct visualization</li>
+            <li>Stops progressive bone and attachment loss definitively</li>
+            <li>Creates a shallower, maintainable environment for daily hygiene</li>
+            <li>Regenerative bone grafts can be combined to restore lost structure</li>
+            <li>Reduces the body's systemic inflammatory burden significantly</li>
+            <li>Dramatically reduces the risk of tooth loss over time</li>
+            <li>Predictable, durable outcomes with structured maintenance care</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after osseous surgery" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="proc-hero">
+    <div class="proc-hero-inner">
+      <p class="section-label" style="color:#7ec8f0">Get in Touch</p>
+      <h1>Contact Us</h1>
+      <p>We're here to answer your questions and schedule your consultation. Our team looks forward to hearing from you.</p>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-form">
+      <h2 style="color:var(--navy);font-size:1.6rem;margin:0 0 28px">Request an Appointment</h2>
+      <form onsubmit="return false">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="form-group"><label>FIRST NAME</label><input class="form-input" type="text" placeholder="Jane"/></div>
+          <div class="form-group"><label>LAST NAME</label><input class="form-input" type="text" placeholder="Doe"/></div>
+        </div>
+        <div class="form-group"><label>EMAIL ADDRESS</label><input class="form-input" type="email" placeholder="jane@example.com"/></div>
+        <div class="form-group"><label>PHONE NUMBER</label><input class="form-input" type="tel" placeholder="(555) 000-0000"/></div>
+        <div class="form-group">
+          <label>I'M INTERESTED IN</label>
+          <select class="form-input">
+            <option>Dental Implants</option>
+            <option>All-On-X Full Arch</option>
+            <option>Gum Recession Treatment</option>
+            <option>Periodontal Disease Treatment</option>
+            <option>Crown Lengthening</option>
+            <option>Osseous Surgery</option>
+            <option>Sinus Lift</option>
+            <option>General Consultation</option>
+          </select>
+        </div>
+        <div class="form-group"><label>MESSAGE (OPTIONAL)</label><textarea class="form-input" placeholder="Tell us a little about your situation..."></textarea></div>
+        <button type="submit" class="btn-blue" style="width:100%;padding:15px">Send Request</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h2>Office Information</h2>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.69 2 5 4.69 5 8c0 5.25 6 12 6 12s6-6.75 6-12c0-3.31-2.69-6-6-6z" stroke="#1e5fa8" stroke-width="1.8" fill="none"/><circle cx="11" cy="8" r="2" stroke="#1e5fa8" stroke-width="1.8" fill="none"/></svg>
+        </div>
+        <div><h4>Address</h4><p>1701 Solar Drive, Suite 291<br/>Oxnard, CA 93030</p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4a2 2 0 01-2 2C8.13 21 1 13.87 1 6a2 2 0 012-2h1z" stroke="#1e5fa8" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Phone</h4><p><a href="tel:8053128604" style="color:inherit;text-decoration:none">805-312-8604</a></p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#1e5fa8" stroke-width="1.8" fill="none"/><path d="M11 6v5l3 3" stroke="#1e5fa8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h4>Office Hours</h4>
+          <p>Wednesday: 9:00 AM – 6:00 PM<br/>Saturday: 8:00 AM – 3:00 PM<br/>Other days: By appointment</p>
+        </div>
+      </div>
+      <div style="background:var(--blue-pale);border-radius:12px;padding:24px;margin-top:12px">
+        <h4 style="color:var(--navy);font-family:'Inter',sans-serif;font-weight:600;margin:0 0 10px">Insurance & Referrals</h4>
+        <p style="color:#4a6080;font-size:14px;line-height:1.6;margin:0">We accept most major dental insurance plans and welcome referrals from general dentists.</p>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span>. All rights reserved.</p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ BONE LOSS REGENERATION ═══════════════════════════ -->
+<div class="page" id="page-perio-boneloss">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Periodontics › Bone Loss Regeneration</div>
+
+  <!-- PART 1: THE TWO TYPES -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>Two Types of Bone Loss — Both Treatable</h2>
+          <p>Bone loss around the teeth and jaw is more common than most patients realize, and it occurs in two distinct ways — each with its own cause, pattern, and treatment approach.</p>
+          <p>The first type occurs around <strong>teeth that are still present</strong>. When gum disease progresses to its advanced stages, the bacteria and your body's inflammatory response begin destroying the bone that anchors your teeth in place. This leads to deep pockets, loosening teeth, and if left untreated, eventual tooth loss. This type of bone loss is called periodontal bone loss.</p>
+          <p>The second type occurs <strong>after a tooth is extracted</strong>. Once a tooth is removed, the jaw bone that once surrounded its root no longer receives the stimulation it needs to maintain itself. The body begins to resorb and shrink that bone — often significantly — within the first few months after extraction. Without intervention, this can leave insufficient bone to ever support a dental implant.</p>
+          <p>The good news is that modern regenerative techniques can address both types of bone loss — rebuilding what was lost and restoring the foundation needed for a healthy, functional smile.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <img src="bone%20loss%20ridge.jpg" alt="Bone loss after tooth extraction" style="border-radius:16px;width:100%;object-fit:cover"/>
+          <img src="bone%20loss%20tooth.jpg" alt="Bone loss around a tooth with gum disease" style="border-radius:16px;width:100%;object-fit:cover"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: BONE LOSS AROUND TEETH (GTR) -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">Type 1 — Around Existing Teeth</span>
+          <h2>Regenerating Bone Lost to Gum Disease</h2>
+          <p style="color:rgba(255,255,255,0.78)">When periodontal bone loss creates deep defects around a tooth, a regenerative procedure can rebuild that lost bone — saving teeth that might otherwise require extraction. This is one of the most powerful tools in periodontal surgery.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Accessing the Defect</h4><p>The gum tissue is gently reflected back to expose the bone defect and the root surface beneath, giving us complete visibility and access to the area that needs treatment.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Thorough Root Cleaning</h4><p>The root surface is meticulously cleaned of all bacteria, calculus, and diseased tissue using hand instruments and ultrasonic scalers under direct visualization.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Emdogain Application</h4><p>Emdogain — a biologic protein derived from developing tooth tissue — is applied to the root surface. It signals the body to regenerate the natural attachment apparatus: bone, cementum, and periodontal ligament.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Bone Graft Placement</h4><p>A bone grafting material is carefully packed into the defect to provide a scaffold for new bone growth and to restore lost volume around the root.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Membrane Placement</h4><p>A collagen membrane is placed over the graft to protect it and prevent soft tissue from growing into the space before bone can form — a process called guided tissue regeneration (GTR).</p></div></li>
+            <li><div class="tp-step-num">6</div><div class="tp-step-body"><h4>Closure & Healing</h4><p>The gum tissue is precisely sutured closed over the regenerative site. Over the following months, new bone and attachment tissue form within the protected space.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="GTR1.jpg" alt="Guided tissue regeneration with membrane around tooth" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: BONE LOSS AFTER EXTRACTION (GBR) -->
+  <div class="tp-section tp-problem" style="background:#f8f4f0;">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label" style="color:var(--blue)">Type 2 — After Tooth Extraction</span>
+          <h2 style="color:var(--navy)">Rebuilding Bone for Implants — Even When You Were Told It Wasn't Possible</h2>
+          <p>Many patients are told by their dentist that they are "not a candidate for implants" because too much bone has been lost after an extraction. This can be discouraging — but it is often not the final word.</p>
+          <p>Guided bone regeneration (GBR) is a surgical technique that uses bone grafting material and a protective membrane to grow new bone in areas where significant volume has been lost. By creating a protected space and providing the biological scaffolding the body needs, we can frequently rebuild enough bone to place a dental implant — even in cases where patients were previously told that implants were impossible.</p>
+          <p>This does not apply to every situation. An evaluation with a 3D CBCT scan is essential to assess what bone remains and determine whether regeneration is feasible. But the results in appropriate candidates can be truly transformative — turning a "no" into a "yes" and restoring an option that patients thought was gone forever.</p>
+          <p>If you have been told you cannot have an implant due to bone loss, we encourage you to come in for an evaluation. You may have more options than you think.</p>
+        </div>
+        <div class="tp-media">
+          <img src="GBR1.jpg" alt="Guided bone regeneration with grafting material for implant placement" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 4: BENEFITS -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of Bone Regeneration</h2>
+          <ul class="tp-benefits-list">
+            <li>Saves teeth that would otherwise require extraction</li>
+            <li>Restores implant candidacy when patients were told it wasn't possible</li>
+            <li>Rebuilds the natural bone and attachment around existing teeth</li>
+            <li>Prevents continued bone loss and tooth mobility</li>
+            <li>Creates a stable, long-term foundation for implants</li>
+            <li>Transforms treatment outcomes that seem hopeless</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule an Evaluation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after bone regeneration treatment" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ FRENECTOMY ═══════════════════════════ -->
+<div class="page" id="page-perio-frenectomy">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Periodontics › Frenectomy</div>
+
+  <!-- PART 1: THE PROBLEM -->
+  <div class="tp-section tp-problem">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">The Condition</span>
+          <h2>What Is a Frenum — and When Does It Cause Problems?</h2>
+          <p>A frenum (or frenulum) is a small fold of tissue that connects the lips or cheeks to the gums. Most people have one connecting the upper lip to the gum above the front teeth (the labial frenum). In many cases, these attachments are completely normal and cause no issues.</p>
+          <p>However, when a frenum is too thick, too tight, or attached too low on the gum, it can create real clinical problems. A high labial frenum can pull on the gum tissue, contributing to gum recession around the front teeth and creating a gap (diastema) between the two upper front teeth that cannot be closed with orthodontics alone.</p>
+          <p>In children, a problematic frenum can interfere with proper tooth eruption and orthodontic treatment. In adults, it is a common cause of localized gum recession, persistent gaps between teeth, and difficulty with denture stability. A frenectomy — the simple surgical removal or repositioning of the frenum — is a quick, highly effective procedure that resolves these issues permanently.</p>
+        </div>
+        <div class="tp-media">
+          <img src="Frenectomy.png" alt="Prominent labial frenum causing gap between upper front teeth" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: THE TREATMENT -->
+  <div class="tp-section tp-treatment">
+    <div class="tp-inner">
+      <div class="tp-split rev">
+        <div>
+          <span class="tp-label">The Procedure</span>
+          <h2>How We Treat It</h2>
+          <p style="color:rgba(255,255,255,0.78)">A frenectomy is a straightforward outpatient procedure performed under local anesthesia. It is typically completed in under 15 minutes, with minimal discomfort and a rapid recovery. Most patients return to normal activity the same day.</p>
+          <ul class="tp-steps">
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Local Anesthesia</h4><p>The area is thoroughly numbed with local anesthetic so the procedure is completely pain-free. Most patients are surprised at how comfortable the experience is.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Frenum Release or Removal</h4><p>The frenum is precisely released or excised using a scalpel.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Closure</h4><p>If sutures are needed, fine resorbable sutures are placed and dissolve on their own. No removal appointment is necessary.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Healing</h4><p>The tissue heals quickly — typically within 1–2 weeks. Post-operative discomfort is minimal and well-managed with over-the-counter pain relief.</p></div></li>
+          </ul>
+        </div>
+        <div class="tp-media">
+          <img src="frenectomy%202.jpg" alt="Frenectomy procedure close-up" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: THE BENEFITS -->
+  <div class="tp-section tp-benefits">
+    <div class="tp-inner">
+      <div class="tp-split">
+        <div>
+          <span class="tp-label">Why It Matters</span>
+          <h2>Benefits of a Frenectomy</h2>
+          <ul class="tp-benefits-list">
+            <li>Eliminates frenum tension contributing to gum recession</li>
+            <li>Allows orthodontic closure of gaps between front teeth</li>
+            <li>Quick procedure — typically completed in under 15 minutes</li>
+            <li>Minimal discomfort and rapid recovery</li>
+
+            <li>Improves denture stability when frenum interferes with fit</li>
+            <li>Can be combined with gum grafting for comprehensive treatment</li>
+          </ul>
+          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+        </div>
+        <div class="tp-media">
+          <img src="smile%201.avif" alt="Patient smiling after frenectomy" style="border-radius:16px;width:100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ REFERRALS ═══════════════════════════ -->
+<div class="page" id="page-referrals">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Referrals</div>
+  <div class="section">
+    <div class="section-inner" style="text-align:center">
+      <span class="section-label">Referrals</span>
+      <h2 class="section-title">Referral Slip</h2>
+      <p style="color:#4a6080;font-size:1.05rem;margin-bottom:32px">Click the slip below to open it as a PDF, or download it directly.</p>
+
+      <a href="Referral Slip.pdf" target="_blank" rel="noopener" style="display:inline-block;border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(13,43,94,0.16);transition:box-shadow 0.2s,transform 0.2s;max-width:680px;width:100%" onmouseover="this.style.boxShadow='0 18px 56px rgba(13,43,94,0.26)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='0 8px 40px rgba(13,43,94,0.16)';this.style.transform='translateY(0)'">
+        <img src="referral-slip-hires.png" alt="Limitless Periodontics Referral Slip" style="display:block;width:100%;height:auto"/>
+      </a>
+
+      <div style="margin-top:24px">
+        <a href="Referral Slip.pdf" download="Limitless_Periodontics_Referral_Slip.pdf" style="display:inline-block;background:var(--navy);color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.06em;padding:14px 40px;border-radius:8px;text-decoration:none;box-shadow:0 4px 18px rgba(13,43,94,0.28);transition:background 0.2s,transform 0.2s,box-shadow 0.2s" onmouseover="this.style.background='var(--blue)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(13,43,94,0.35)'" onmouseout="this.style.background='var(--navy)';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 18px rgba(13,43,94,0.28)'">DOWNLOAD NOW!</a>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ SEDATION SERVICES ═══════════════════════════ -->
+<div class="page" id="page-sedation">
+  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › <span onclick="showPage('sedation')">Sedation Services</span></div>
+
+  <!-- Section 1: Nitrous Oxide -->
+  <div class="tp-section" style="background:#f8fbff">
+    <div class="section-inner">
+      <div class="tp-split">
+        <div class="tp-split-text">
+          <span class="section-label">Comfort & Relaxation</span>
+          <h2 class="section-title">Nitrous Oxide</h2>
+          <p class="tp-intro">Also known as "laughing gas," nitrous oxide is the mildest and most commonly used form of dental sedation. It is inhaled through a small mask placed over your nose and takes effect within minutes.</p>
+          <div class="tp-benefits">
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Rapid onset — you feel calm within 2–3 minutes</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Fully reversible — effects wear off within minutes after removal of the mask</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>You remain fully conscious and can communicate throughout</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Safe for most patients, including those with mild anxiety</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>You can drive yourself home after the appointment</span></div>
+          </div>
+        </div>
+        <div class="tp-split-media">
+          <img src="Nitrous%20Oxide.webp" alt="Patient receiving nitrous oxide" style="width:100%;border-radius:14px;object-fit:cover;height:380px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Oral Sedation -->
+  <div class="tp-section" style="background:var(--navy)">
+    <div class="section-inner">
+      <div class="tp-split" style="flex-direction:row-reverse">
+        <div class="tp-split-text">
+          <span class="section-label" style="color:var(--blue-light)">Deeper Relaxation</span>
+          <h2 class="section-title" style="color:#fff">Oral Sedation</h2>
+          <p class="tp-intro" style="color:rgba(255,255,255,0.82)">Oral sedation involves taking a prescribed medication about an hour before your procedure. You will feel drowsy and deeply relaxed, though you remain awake and able to respond to questions.</p>
+          <div class="tp-benefits" style="background:rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px">
+            <div class="tp-benefit-item"><span class="tp-benefit-icon" style="color:#7ec8f0">✓</span><span style="color:#fff">Ideal for moderate to significant dental anxiety</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon" style="color:#7ec8f0">✓</span><span style="color:#fff">Easy to take — just a small pill before your appointment</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon" style="color:#7ec8f0">✓</span><span style="color:#fff">Produces a deep sense of calm and drowsiness</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon" style="color:#7ec8f0">✓</span><span style="color:#fff">Many patients have little to no memory of the procedure</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon" style="color:#7ec8f0">✓</span><span style="color:#fff">Allows longer, more complex procedures to feel effortless</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon" style="color:#7ec8f0">✓</span><span style="color:#fff">A driver is required to take you home after</span></div>
+          </div>
+        </div>
+        <div class="tp-split-media">
+          <img src="Oral%20sedation.jpeg" alt="Oral sedation pill" style="width:100%;border-radius:14px;object-fit:cover;height:380px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: IV Sedation -->
+  <div class="tp-section" style="background:#f8fbff">
+    <div class="section-inner">
+      <div class="tp-split">
+        <div class="tp-split-text">
+          <span class="section-label">Maximum Comfort</span>
+          <h2 class="section-title">IV Sedation</h2>
+          <p class="tp-intro">Intravenous (IV) sedation delivers sedative medication directly into the bloodstream through a small IV line, producing a profound state of relaxation. You remain responsive but will likely have no memory of the procedure.</p>
+          <div class="tp-benefits">
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Recommended for complex, lengthy, or multiple procedures in one visit</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Deepest level of conscious sedation available in our office</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>An anesthesiologist administers and monitors your sedation throughout the entire procedure</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Works within seconds — you will feel relaxed almost immediately</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>Virtually eliminates awareness and discomfort during treatment</span></div>
+            <div class="tp-benefit-item"><span class="tp-benefit-icon">✓</span><span>A driver is required; you will need to rest for the remainder of the day</span></div>
+          </div>
+        </div>
+        <div class="tp-split-media">
+          <img src="IV%20sedation.jpg" alt="IV sedation setup" style="width:100%;border-radius:14px;object-fit:cover;height:380px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px">
+    <p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p>
+    <p style="margin-top:10px"><button onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ PRIVACY POLICY PAGE ═══════════════════════════ -->
+<div id="page-privacy" class="page">
+  <div style="max-width:860px;margin:0 auto;padding:60px 32px 80px">
+    <h1 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:2.2rem;margin-bottom:8px">Privacy Policy</h1>
+    <p style="color:#64748b;font-size:14px;margin-bottom:40px">Last updated: March 23, 2026</p>
+    <div style="line-height:1.8;color:#2a3a4a;font-size:15px">
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">1. Introduction</h2>
+      <p>Limitless Periodontics &amp; Implants ("we," "our," or "us") operates this website and is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+      <p style="margin-top:12px">This policy is provided in compliance with the <strong>California Online Privacy Protection Act (CalOPPA)</strong> and the <strong>California Consumer Privacy Act (CCPA)</strong> as amended by the <strong>California Privacy Rights Act (CPRA)</strong>.</p>
+      <p style="margin-top:12px"><strong>Note:</strong> This policy covers information collected through this website only. For information about how we handle protected health information (PHI) in the context of your dental care, please refer to our separate <strong>HIPAA Notice of Privacy Practices</strong>, available at our office.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">2. Information We Collect</h2>
+      <p>We do <strong>not</strong> collect any personal information from visitors who simply browse this website. Information is only collected when you choose to submit a new patient appointment request through our scheduling form.</p>
+      <p style="margin-top:12px">When you request an appointment, we collect the following:</p>
+      <ul style="margin:12px 0 12px 24px;list-style:disc">
+        <li style="margin-bottom:8px"><strong>Full name</strong></li>
+        <li style="margin-bottom:8px"><strong>Date of birth</strong></li>
+        <li style="margin-bottom:8px"><strong>Home address</strong></li>
+        <li style="margin-bottom:8px"><strong>Phone number</strong></li>
+        <li style="margin-bottom:8px"><strong>Email address</strong></li>
+        <li style="margin-bottom:8px"><strong>Dental insurance information</strong></li>
+      </ul>
+      <p>This information is collected solely to schedule and prepare for your appointment. We do <strong>not</strong> use tracking tools, analytics software, or cookies to collect data about how you browse this website.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">3. How We Use Your Information</h2>
+      <p>The information you provide when requesting an appointment is used only to:</p>
+      <ul style="margin:12px 0 12px 24px;list-style:disc">
+        <li style="margin-bottom:8px">Schedule and confirm your appointment</li>
+        <li style="margin-bottom:8px">Contact you with appointment reminders or follow-up communications</li>
+        <li style="margin-bottom:8px">Verify and coordinate your dental insurance coverage</li>
+        <li style="margin-bottom:8px">Comply with applicable legal and regulatory obligations</li>
+      </ul>
+      <p>We do <strong>not</strong> sell your personal information to third parties, and we do not use it for marketing purposes.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">4. Disclosure of Your Information</h2>
+      <p>We may share your information only in the following limited circumstances:</p>
+      <ul style="margin:12px 0 12px 24px;list-style:disc">
+        <li style="margin-bottom:8px"><strong>Insurance Verification:</strong> Your insurance information may be shared with your insurance carrier solely to verify coverage for your scheduled treatment.</li>
+        <li style="margin-bottom:8px"><strong>Service Providers:</strong> Third-party vendors who assist with appointment scheduling or secure data storage, bound by confidentiality agreements.</li>
+        <li style="margin-bottom:8px"><strong>Legal Compliance:</strong> Government authorities or other parties when required by law, court order, or to protect our legal rights.</li>
+        <li style="margin-bottom:8px"><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of our practice, your information may be transferred as part of that transaction.</li>
+      </ul>
+      <p>We do not disclose personal information to third parties for advertising or marketing purposes. No mobile opt-in message consent will be shared with third parties or affiliates for marketing purposes.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">5. Cookies and Tracking</h2>
+      <p>This website may use cookies and tracking technology depending on the features offered. These tools help us gather information such as browser type and operating system, track the number of visitors to the site, and understand how visitors use the site. Cookies may also help customize your experience. While personal information cannot be collected via cookies or other tracking technology alone, cookies may be associated with personally identifiable information you have previously provided. Aggregate cookie and tracking data may be shared with third parties.</p>
+      <p style="margin-top:12px">This website uses Google Analytics, a web analytics service provided by Google, Inc. Google Analytics uses cookies — text files placed on your device — to help analyze how visitors use the site. The information generated by the cookie about your use of this website (including your IP address) is transmitted to and stored by Google on servers in the United States. Google uses this information to evaluate your use of the website, compile reports on website activity, and provide other services related to website activity and internet usage. Google may also transfer this information to third parties where required by law or where such parties process the information on Google's behalf. Google will not associate your IP address with any other data it holds.</p>
+      <p style="margin-top:12px">You may decline cookies by adjusting the appropriate settings in your browser. Please note that disabling cookies may limit your ability to use certain features of this website. By continuing to use this website, you consent to the processing of data about you by Google in the manner and for the purposes described above.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">6. SMS Communications</h2>
+      <p>If you consent to receive SMS messages from Limitless Periodontics &amp; Implants, you agree to receive text messages from us, including appointment reminders, appointment confirmations, scheduling follow-ups, and customer care communications. Message and data rates may apply. Messaging frequency may vary.</p>
+      <p style="margin-top:12px">Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for help. You may also contact us directly at <a href="tel:+18053128604" style="color:var(--blue)">805-312-8604</a> or <a href="mailto:info@limitlessperiodontics.com" style="color:var(--blue)">info@limitlessperiodontics.com</a> to opt out.</p>
+      <p style="margin-top:12px">No mobile opt-in message consent will be shared with third parties or affiliates for marketing purposes.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">7. California Residents — Your Privacy Rights (CCPA/CPRA)</h2>
+      <p>If you are a California resident, you have the following rights under the CCPA/CPRA:</p>
+      <ul style="margin:12px 0 12px 24px;list-style:disc">
+        <li style="margin-bottom:8px"><strong>Right to Know:</strong> You may request disclosure of the categories and specific pieces of personal information we have collected about you, the sources, the purposes, and any third parties with whom we share it.</li>
+        <li style="margin-bottom:8px"><strong>Right to Delete:</strong> You may request deletion of personal information we have collected from you, subject to certain exceptions (e.g., to complete a transaction or comply with a legal obligation).</li>
+        <li style="margin-bottom:8px"><strong>Right to Correct:</strong> You may request correction of inaccurate personal information we hold about you.</li>
+        <li style="margin-bottom:8px"><strong>Right to Opt-Out of Sale or Sharing:</strong> We do not sell or share personal information for cross-context behavioral advertising.</li>
+        <li style="margin-bottom:8px"><strong>Right to Limit Use of Sensitive Personal Information:</strong> We do not use or disclose sensitive personal information beyond purposes authorized under the CPRA.</li>
+        <li style="margin-bottom:8px"><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
+      </ul>
+      <p>To exercise these rights, please contact us using the information in Section 10. We will respond to verifiable requests within <strong>45 days</strong> as required by law. You may designate an authorized agent to submit a request on your behalf.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">8. Data Retention</h2>
+      <p>We retain personal information collected through this website only as long as necessary to fulfill the purposes described in this policy, or as required by applicable law. Contact form submissions are generally retained for up to 3 years.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">9. Links to Other Websites</h2>
+      <p>Our website may contain links to other websites of interest. However, once you use these links to leave our site, please be aware that we do not have any control over those external websites. We are not responsible for the protection or privacy of any information you provide while visiting such sites, and those sites are not governed by this Privacy Policy. You should exercise caution and review the privacy policy applicable to the website in question before providing any personal information.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">10. Children's Privacy</h2>
+      <p>This website is not directed to individuals under the age of 16. We do not knowingly collect personal information from children under 16. If we become aware that we have inadvertently collected such information, we will delete it promptly.</p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">11. Contact Us — Privacy Requests</h2>
+      <p>To exercise your privacy rights or ask questions about this policy, please contact us:</p>
+      <div style="background:var(--blue-faint);border-left:4px solid var(--blue-mid);border-radius:0 8px 8px 0;padding:20px 24px;margin-top:16px">
+        <p><strong>Limitless Periodontics &amp; Implants</strong></p>
+        <p style="margin-top:6px">Email: <a href="mailto:info@limitlessperiodontics.com" style="color:var(--blue)">info@limitlessperiodontics.com</a></p>
+        <p style="margin-top:4px">Phone: <a href="tel:+18053128604" style="color:var(--blue)">805-312-8604</a></p>
+        <p style="margin-top:4px">1701 Solar Drive, Ste. 291, Oxnard, CA 93030</p>
+      </div>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.35rem;margin:36px 0 12px">12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy periodically. The "Last updated" date at the top reflects the most recent revision. Continued use of the website after changes are posted constitutes acceptance of the revised policy.</p>
+
+    </div>
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #e2eaf4">
+      <button onclick="showPage('home')" style="background:var(--navy);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;cursor:pointer" onmouseover="this.style.background='var(--blue)'" onmouseout="this.style.background='var(--navy)'">&larr; Back to Home</button>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px">
+    <p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p>
+    <p style="margin-top:10px"><button onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ JS ROUTING ═══════════════════════════ -->
+<script>
+  const navMap = {
+    'home': 'nav-home',
+    'meet-doctor': 'nav-meet-doctor',
+    'implants-what': 'nav-services',
+    'implants-placement': 'nav-services',
+    'implants-extraction': 'nav-services',
+    'implants-sinus': 'nav-services',
+    'implants-overdenture': 'nav-services',
+    'implants-allon': 'nav-services',
+    'implants-failing': 'nav-services',
+    'perio-recession': 'nav-services',
+    'perio-disease': 'nav-services',
+    'perio-crown': 'nav-services',
+    'perio-osseous': 'nav-services',
+    'perio-boneloss': 'nav-services',
+    'perio-frenectomy': 'nav-services',
+    'sedation': 'nav-services',
+    'referrals': 'nav-referrals',
+    'contact': null,
+    'privacy': null,
+  };
+
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    const page = document.getElementById('page-' + id);
+    if (page) { page.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+    const navId = navMap[id];
+    if (navId) { const el = document.getElementById(navId); if(el) el.classList.add('active'); }
+  }
+
+  // Inject Privacy Policy link into every footer
+  document.querySelectorAll('footer').forEach(function(f) {
+    if (!f.querySelector('.privacy-link')) {
+      var p = document.createElement('p');
+      p.style.marginTop = '10px';
+      p.innerHTML = '<button class="privacy-link" onclick="showPage(\'privacy\')">Privacy Policy</button>';
+      f.appendChild(p);
+    }
+  });
+</script>
+</body>
+</html>
