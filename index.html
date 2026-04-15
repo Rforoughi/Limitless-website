@@ -3,7 +3,58 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Limitless Periodontics & Implants</title>
+<title>Limitless Periodontics & Implants | Periodontist in Oxnard, CA</title>
+<meta name="description" content="Board-certified periodontist in Oxnard, CA. Specializing in dental implants, gum disease treatment, gum grafting, and bone regeneration. Serving Ventura County."/>
+<meta name="geo.region" content="US-CA"/>
+<meta name="geo.placename" content="Oxnard, California"/>
+<meta name="keywords" content="periodontist Oxnard CA, dental implants Oxnard, gum disease treatment, gum grafting, bone regeneration, sinus lift, Ventura County periodontist"/>
+<link rel="canonical" href="https://www.limitlessperiodontics.com/"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Limitless Periodontics & Implants",
+  "description": "Board-certified periodontal specialty practice in Oxnard, CA offering dental implants, gum disease treatment, gum grafting, sinus lifts, bone regeneration, and sedation services.",
+  "url": "https://www.limitlessperiodontics.com",
+  "logo": "https://www.limitlessperiodontics.com/Brand_assets/Logo.jpg",
+  "telephone": "+18053128604",
+  "email": "info@limitlessperiodontics.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1701 Solar Drive, Suite 291",
+    "addressLocality": "Oxnard",
+    "addressRegion": "CA",
+    "postalCode": "93030",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.197,
+    "longitude": -119.177
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Oxnard" },
+    { "@type": "City", "name": "Ventura" },
+    { "@type": "City", "name": "Camarillo" },
+    { "@type": "City", "name": "Port Hueneme" },
+    { "@type": "City", "name": "Thousand Oaks" }
+  ],
+  "medicalSpecialty": "Periodontist",
+  "employee": {
+    "@type": "Physician",
+    "name": "Dr. Ramin Foroughi",
+    "jobTitle": "Periodontist",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of California, Los Angeles (UCLA)" },
+      { "@type": "CollegeOrUniversity", "name": "University of Southern California (USC)" },
+      { "@type": "CollegeOrUniversity", "name": "Boston University" }
+    ]
+  },
+  "hasMap": "https://maps.google.com/?q=1701+Solar+Drive+Suite+291+Oxnard+CA+93030",
+  "sameAs": []
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -301,6 +352,45 @@
     .nav-link { padding: 8px 10px; font-size: 13px; }
     .tp-split { grid-template-columns: 1fr; }
   }
+
+  /* ── BLOG ── */
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin-top: 48px; }
+  .blog-card {
+    background: #fff; border-radius: 16px; overflow: hidden; cursor: pointer;
+    box-shadow: 0 4px 24px rgba(13,43,94,0.10); border: 1px solid #e8eef6;
+    transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 16px 44px rgba(13,43,94,0.18); }
+  .blog-card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--blue-pale); }
+  .blog-card-img-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, var(--navy), var(--blue-mid)); display: flex; align-items: center; justify-content: center; }
+  .blog-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+  .blog-card-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin: 0 0 12px; line-height: 1.35; letter-spacing: -0.01em; }
+  .blog-card-excerpt { font-size: 14px; color: #5a7090; line-height: 1.65; margin: 0 0 20px; flex: 1; }
+  .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #8a9ab0; border-top: 1px solid #f0f4f8; padding-top: 14px; margin-top: auto; }
+  .blog-card-readmore { color: var(--blue); font-weight: 600; font-size: 13px; }
+
+  /* Blog post page */
+  .blog-post-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+  .blog-post-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; display: block; }
+  .blog-post-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy); margin: 0 0 16px; letter-spacing: -0.025em; line-height: 1.18; }
+  .blog-post-meta { font-size: 13px; color: #8a9ab0; margin-bottom: 32px; display: flex; align-items: center; gap: 20px; }
+  .blog-post-meta span { display: flex; align-items: center; gap: 6px; }
+  .blog-post-hero { width: 100%; border-radius: 14px; margin-bottom: 40px; display: block; }
+  .blog-post-body { font-size: 1.02rem; color: #2a3a4a; line-height: 1.82; }
+  .blog-post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin: 44px 0 16px; letter-spacing: -0.02em; }
+  .blog-post-body h3 { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 28px 0 10px; }
+  .blog-post-body p { margin: 0 0 20px; }
+  .blog-post-body ul { margin: 0 0 20px 20px; }
+  .blog-post-body li { margin-bottom: 8px; }
+  .blog-post-body strong { color: var(--navy); }
+  .blog-post-cta { background: linear-gradient(135deg, var(--navy), var(--blue-mid)); border-radius: 14px; padding: 36px 40px; margin-top: 52px; text-align: center; }
+  .blog-post-cta h3 { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.4rem; margin: 0 0 10px; }
+  .blog-post-cta p { color: rgba(255,255,255,0.82); font-size: 15px; margin: 0 0 22px; }
+  .blog-breadcrumb { background: var(--blue-faint); padding: 14px 24px; border-bottom: 1px solid #dce8f0; font-size: 13px; color: #5a7090; }
+  .blog-breadcrumb span { color: var(--blue); cursor: pointer; }
+  .blog-breadcrumb span:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -365,6 +455,7 @@
       </div>
 
       <button class="nav-link" onclick="showPage('contact')">Contact Us</button>
+      <button class="nav-link" id="nav-blog" onclick="showPage('blog')">Blog</button>
     </div>
 
     <div class="nav-links-right">
@@ -1786,6 +1877,319 @@
   </footer>
 </div>
 
+<!-- ═══════════════════════════ BLOG INDEX ═══════════════════════════ -->
+<div class="page" id="page-blog">
+  <div class="blog-breadcrumb"><span onclick="showPage('home')">Home</span> › Blog</div>
+  <div class="section" style="background:var(--blue-faint)">
+    <div class="section-inner">
+      <p class="section-label">Patient Education</p>
+      <h2 class="section-title">Periodontal Health Blog</h2>
+      <p class="section-sub">Expert insights on gum disease, dental implants, and oral health from Dr. Ramin Foroughi, periodontist in Oxnard, CA.</p>
+      <div class="blog-grid">
+
+        <div class="blog-card" onclick="showPage('blog-gum-disease-signs')">
+          <div class="blog-card-img-placeholder">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><path d="M20 38 Q32 28 44 38" stroke="#7ec8f0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="24" cy="28" r="3" fill="#7ec8f0"/><circle cx="40" cy="28" r="3" fill="#7ec8f0"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Gum Disease</div>
+            <h3 class="blog-card-title">5 Signs of Gum Disease You Should Never Ignore</h3>
+            <p class="blog-card-excerpt">Bleeding when you brush, gums that look like they're pulling away, persistent bad breath — these are not normal. Learn the warning signs that mean it's time to see a specialist.</p>
+            <div class="blog-card-meta">
+              <span>Dr. Ramin Foroughi &nbsp;·&nbsp; April 2026</span>
+              <span class="blog-card-readmore">Read more →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card" onclick="showPage('blog-implants-vs-dentures')">
+          <div class="blog-card-img-placeholder">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="16" y="24" width="32" height="20" rx="6" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><rect x="22" y="18" width="6" height="10" rx="2" fill="#7ec8f0"/><rect x="36" y="18" width="6" height="10" rx="2" fill="#7ec8f0"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Dental Implants</div>
+            <h3 class="blog-card-title">Dental Implants vs. Dentures: Which Is Right for You?</h3>
+            <p class="blog-card-excerpt">Both replace missing teeth — but they work very differently. A periodontist breaks down the real differences in bone health, comfort, cost, and long-term outcomes.</p>
+            <div class="blog-card-meta">
+              <span>Dr. Ramin Foroughi &nbsp;·&nbsp; March 2026</span>
+              <span class="blog-card-readmore">Read more →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card" onclick="showPage('blog-sinus-lift')">
+          <div class="blog-card-img-placeholder">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M20 48 L20 24 Q20 16 32 16 Q44 16 44 24 L44 48" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/><path d="M26 36 L26 28 Q26 22 32 22 Q38 22 38 28 L38 36" stroke="#7ec8f0" stroke-width="2.5" fill="none"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Implant Surgery</div>
+            <h3 class="blog-card-title">What Is a Sinus Lift — and Do You Need One for Implants?</h3>
+            <p class="blog-card-excerpt">If you've been told you need a sinus lift before getting dental implants, here's exactly what that means, how the procedure works, and what recovery looks like.</p>
+            <div class="blog-card-meta">
+              <span>Dr. Ramin Foroughi &nbsp;·&nbsp; February 2026</span>
+              <span class="blog-card-readmore">Read more →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card" onclick="showPage('blog-gum-recession')">
+          <div class="blog-card-img-placeholder">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M16 30 Q32 22 48 30" stroke="#7ec8f0" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="26" y="30" width="12" height="18" rx="3" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Gum Health</div>
+            <h3 class="blog-card-title">Why Gum Recession Happens — and How to Stop It</h3>
+            <p class="blog-card-excerpt">Receding gums expose roots, cause sensitivity, and — if untreated — lead to tooth loss. Learn what actually causes recession and how a periodontist can fix it.</p>
+            <div class="blog-card-meta">
+              <span>Dr. Ramin Foroughi &nbsp;·&nbsp; January 2026</span>
+              <span class="blog-card-readmore">Read more →</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ BLOG POST: GUM DISEASE SIGNS ═══════════════════════════ -->
+<div class="page" id="page-blog-gum-disease-signs">
+  <div class="blog-breadcrumb"><span onclick="showPage('home')">Home</span> › <span onclick="showPage('blog')">Blog</span> › 5 Signs of Gum Disease</div>
+  <div class="blog-post-wrap">
+    <span class="blog-post-tag">Gum Disease · Education</span>
+    <h1 class="blog-post-title">5 Signs of Gum Disease You Should Never Ignore</h1>
+    <div class="blog-post-meta">
+      <span>By Dr. Ramin Foroughi, Periodontist</span>
+      <span>April 2026 &nbsp;·&nbsp; 5 min read</span>
+    </div>
+
+    <div class="blog-post-body">
+      <p>Gum disease — also called periodontal disease — is one of the most common chronic conditions in the United States, yet most patients don't know they have it until significant damage has already occurred. Unlike a cavity, which usually hurts, gum disease is largely painless in its early and middle stages. By the time it becomes uncomfortable, irreversible bone loss is often already underway.</p>
+      <p>The good news: caught early, gum disease is very treatable. The challenge is knowing what to look for. Here are five warning signs that should prompt a visit to a periodontist — not just your general dentist.</p>
+
+      <h2>1. Bleeding When You Brush or Floss</h2>
+      <p>This is the most common early sign, and the most commonly dismissed. Many patients assume bleeding gums are normal, or that they're brushing "too hard." They are not normal. <strong>Healthy gums do not bleed.</strong></p>
+      <p>Bleeding is your body's inflammatory response to bacteria that have taken up residence at or below the gumline. The gum tissue becomes swollen, fragile, and prone to bleeding with even gentle contact. This stage is called <strong>gingivitis</strong> — and it is fully reversible with proper treatment. Ignored, it progresses to periodontitis, which is not.</p>
+
+      <h2>2. Gums That Look Like They're Pulling Away from Your Teeth</h2>
+      <p>If your teeth look longer than they used to, or if you can see the yellowish root surface near the gumline, your gums may be receding. <strong>Gum recession is a hallmark sign of periodontal disease</strong> — though it can also be caused by aggressive brushing, orthodontic movement, or thin gum tissue.</p>
+      <p>Recession exposes the tooth root, which has no enamel protection. This leads to sensitivity, especially to cold or sweet foods, and significantly increases the risk of root decay. Receded gum tissue does not grow back on its own — but it can be restored with a gum grafting procedure performed by a periodontist.</p>
+
+      <h2>3. Persistent Bad Breath That Doesn't Respond to Brushing</h2>
+      <p>Occasional bad breath is common. Chronic halitosis that persists despite good oral hygiene is different. <strong>Bacteria living in deep periodontal pockets</strong> — the spaces between your teeth and gums that form as disease progresses — produce sulfur compounds that cause a distinctly unpleasant odor. No amount of mouthwash addresses the source.</p>
+      <p>If people in your life have mentioned bad breath, or if you notice an unpleasant taste you can't resolve, it's worth getting a periodontal evaluation.</p>
+
+      <h2>4. Teeth That Feel Loose or Have Shifted Position</h2>
+      <p>Adult teeth should not feel loose. If you notice any mobility — even subtle movement when you press on a tooth — it means the supporting structures (bone and periodontal ligament) have been damaged significantly. <strong>Bone loss is the direct cause of tooth mobility in periodontal disease.</strong></p>
+      <p>Similarly, if your bite has changed, or if teeth that were previously aligned have drifted apart or developed gaps, periodontal disease may be the cause. This degree of progression requires urgent evaluation — the goal is to preserve the remaining bone and prevent tooth loss.</p>
+
+      <h2>5. Swollen, Red, or Tender Gum Tissue</h2>
+      <p>Healthy gums are firm and pale pink. Gums that are red, puffy, or tender to the touch are inflamed — a response to bacterial infection in the tissue. This can occur around individual teeth or affect the entire gum line.</p>
+      <p>Some patients notice this most during eating, when gum pressure causes discomfort. Others only notice the discoloration when looking closely in the mirror. Either way, <strong>inflamed gum tissue is not cosmetic — it reflects active infection</strong> that will progress without treatment.</p>
+
+      <h2>What to Do If You Notice These Signs</h2>
+      <p>If you're experiencing one or more of the above, the right step is a comprehensive periodontal evaluation. A periodontist is a specialist who focuses exclusively on the health of the structures that support your teeth — bone, gums, and connective tissue. A thorough exam includes pocket depth measurements, bone level assessment via X-rays, and a personalized treatment plan.</p>
+      <p>Early-stage gum disease (gingivitis) can often be managed with a professional cleaning and improved home care. More advanced disease may require scaling and root planing, surgical pocket reduction, or regenerative procedures. The sooner you come in, the more options are available — and the more of your natural teeth we can preserve.</p>
+    </div>
+
+    <div class="blog-post-cta">
+      <h3>Concerned About Your Gum Health?</h3>
+      <p>Schedule a comprehensive periodontal evaluation with Dr. Ramin Foroughi in Oxnard, CA. Most patients are surprised at how painless and straightforward the process is.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Request an Evaluation</button>
+    </div>
+
+    <div style="margin-top:40px;padding-top:28px;border-top:1px solid #e8eef6;display:flex;align-items:center;justify-content:space-between">
+      <button onclick="showPage('blog')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">← Back to Blog</button>
+      <button onclick="showPage('blog-implants-vs-dentures')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">Next Article →</button>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ BLOG POST: IMPLANTS VS DENTURES ═══════════════════════════ -->
+<div class="page" id="page-blog-implants-vs-dentures">
+  <div class="blog-breadcrumb"><span onclick="showPage('home')">Home</span> › <span onclick="showPage('blog')">Blog</span> › Implants vs. Dentures</div>
+  <div class="blog-post-wrap">
+    <span class="blog-post-tag">Dental Implants · Patient Guide</span>
+    <h1 class="blog-post-title">Dental Implants vs. Dentures: Which Is Right for You?</h1>
+    <div class="blog-post-meta">
+      <span>By Dr. Ramin Foroughi, Periodontist</span>
+      <span>March 2026 &nbsp;·&nbsp; 6 min read</span>
+    </div>
+
+    <div class="blog-post-body">
+      <p>When patients lose multiple teeth — or face losing them — they're often presented with two options: dentures or dental implants. Both replace missing teeth. But they work very differently, and their long-term outcomes are not equivalent. Here's an honest comparison from a periodontist who places dental implants every day.</p>
+
+      <h2>The Fundamental Difference</h2>
+      <p>The most important distinction between implants and dentures is what they do — or don't do — for your jawbone.</p>
+      <p>Your jawbone is maintained by the stimulation of tooth roots pressing against it during chewing. When a tooth is lost, the bone beneath it no longer receives that stimulation. <strong>The body interprets this as a signal to resorb the bone — and it begins doing so within weeks of extraction.</strong> Over the first year after tooth loss, up to 25% of bone volume can be lost. This accelerates over time.</p>
+      <p>Dentures sit on top of the gum and bone — they do not replace the tooth root and provide no stimulation. The bone loss continues underneath them, which is why dentures that fit well initially often become loose over the years. Dental implants, by contrast, are placed directly into the jawbone and fuse with it through a process called osseointegration. They function as tooth roots, preventing bone loss entirely.</p>
+
+      <h2>Comfort and Function</h2>
+      <p><strong>Dentures</strong> are removable prosthetics that rest on the gums. Lower dentures in particular are notoriously unstable, because the lower arch has less surface area to grip. Many patients find that lower dentures rock, shift, and limit their diet significantly. Adhesives help temporarily but don't solve the underlying instability. As bone continues to resorb, fit deteriorates further.</p>
+      <p><strong>Implants</strong> are fixed in the jaw and function like natural teeth. Patients bite, chew, and speak without thinking about their teeth — because the implants behave exactly as roots do. There is no movement, no adhesive, no dietary restriction, and no removal at night. Most patients report that implants are indistinguishable from their natural teeth in everyday function.</p>
+
+      <h2>Cost: The Real Comparison</h2>
+      <p>Dentures have a lower upfront cost, which makes them attractive. But cost comparisons should account for the full picture:</p>
+      <ul>
+        <li>Dentures require relining as bone resorbs and the fit changes — typically every few years</li>
+        <li>Poorly fitting dentures accelerate bone loss, potentially requiring more complex (and more expensive) bone grafting if implants are pursued later</li>
+        <li>The longer a patient waits to pursue implants after tooth loss, the more bone is gone — meaning more extensive (and more costly) pre-implant bone grafting may be needed</li>
+        <li>Implants, maintained well, last decades. The per-year cost over a lifetime is often lower than repeatedly replacing dentures</li>
+      </ul>
+      <p>We understand that implants are a significant investment upfront, and we work with several financing partners to make treatment accessible. But patients should make this decision with full information — not just the initial sticker price.</p>
+
+      <h2>Implant-Supported Dentures: The Middle Ground</h2>
+      <p>For patients who want the stability of implants but at a lower cost than replacing every tooth individually, <strong>implant-supported overdentures</strong> offer a compelling option. Two to four implants are placed in the jaw, and the denture "snaps on" to them. The result is dramatically better stability than a conventional denture — and the implants prevent the bone loss that makes conventional dentures problematic over time.</p>
+      <p>For patients who are missing all their teeth, <strong>All-On-4 or All-On-6</strong> full-arch implants provide a completely fixed bridge anchored to four or six implants. The result is a full set of teeth that do not come out — permanent, stable, and bone-preserving.</p>
+
+      <h2>Who Is a Candidate for Implants?</h2>
+      <p>Most healthy adults who have lost teeth are candidates for dental implants. The key requirements are:</p>
+      <ul>
+        <li>Sufficient jawbone volume to anchor the implant (if not, bone grafting can often create it)</li>
+        <li>Healthy gums free of active infection</li>
+        <li>No uncontrolled systemic conditions that would impair healing</li>
+      </ul>
+      <p>Even patients who have been told they "don't have enough bone" for implants are often candidates after a bone grafting procedure. A 3D CBCT scan gives us the precise information needed to evaluate what's possible for each patient specifically.</p>
+
+      <h2>Our Recommendation</h2>
+      <p>For most patients, dental implants are the superior long-term solution. They preserve bone, function like natural teeth, and eliminate the ongoing complications of removable dentures. The question isn't really "implants or dentures" — it's "what type of implant solution is right for your situation and budget?" We're happy to walk through all the options at a consultation.</p>
+    </div>
+
+    <div class="blog-post-cta">
+      <h3>Ready to Explore Your Options?</h3>
+      <p>Schedule a dental implant consultation with Dr. Ramin Foroughi in Oxnard, CA. We'll review your bone levels, explain all options, and give you a clear picture of what's possible.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Schedule a Consultation</button>
+    </div>
+
+    <div style="margin-top:40px;padding-top:28px;border-top:1px solid #e8eef6;display:flex;align-items:center;justify-content:space-between">
+      <button onclick="showPage('blog')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">← Back to Blog</button>
+      <button onclick="showPage('blog-sinus-lift')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">Next Article →</button>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ BLOG POST: SINUS LIFT ═══════════════════════════ -->
+<div class="page" id="page-blog-sinus-lift">
+  <div class="blog-breadcrumb"><span onclick="showPage('home')">Home</span> › <span onclick="showPage('blog')">Blog</span> › What Is a Sinus Lift?</div>
+  <div class="blog-post-wrap">
+    <span class="blog-post-tag">Implant Surgery · Patient Guide</span>
+    <h1 class="blog-post-title">What Is a Sinus Lift — and Do You Need One for Dental Implants?</h1>
+    <div class="blog-post-meta">
+      <span>By Dr. Ramin Foroughi, Periodontist</span>
+      <span>February 2026 &nbsp;·&nbsp; 5 min read</span>
+    </div>
+
+    <div class="blog-post-body">
+      <p>If you've been told you need a sinus lift before getting dental implants in your upper back jaw, you might be wondering what that means — and whether it's really necessary. This is one of the most common questions we get from patients evaluating their implant options, so let's walk through it clearly.</p>
+
+      <h2>Why the Upper Back Jaw Is Different</h2>
+      <p>Your maxillary sinuses are large air-filled cavities that sit just above your upper back teeth (molars and premolars). In most people, the floor of the sinus sits fairly close to the roots of those teeth.</p>
+      <p>When an upper back tooth is lost, two things happen simultaneously: the jawbone beneath the extraction site begins to resorb (shrink), and the sinus floor can gradually expand downward into the space vacated by the lost root. The result, over time, is a situation where there may not be enough vertical bone height between the gum surface and the sinus floor to safely place a dental implant — which needs at least 10–12mm of bone to be anchored securely.</p>
+      <p><strong>A sinus lift solves this problem by elevating the sinus membrane and placing bone graft material in the created space, building the bone height needed to support an implant.</strong></p>
+
+      <h2>What the Procedure Involves</h2>
+      <p>There are two techniques, chosen based on how much additional bone height is needed:</p>
+      <h3>Internal (Crestal) Sinus Lift</h3>
+      <p>When only a small amount of bone needs to be added (typically less than 4–5mm), an internal sinus lift can be performed through the same access point used for the implant. A special instrument gently elevates the sinus membrane through the implant site, and graft material is packed into the created space. In many cases, the implant can be placed at the same appointment.</p>
+      <h3>Lateral (Window) Sinus Lift</h3>
+      <p>When more significant bone volume is needed, the procedure is performed through a small opening ("window") made in the side of the jaw. The sinus membrane is carefully lifted away from the bone, graft material is placed in the space, and the window is covered with a protective membrane. The site is allowed to heal for approximately 6–9 months before implant placement.</p>
+      <p>Both procedures are performed under local anesthesia in our office, with sedation available for anxious patients. Most people are surprised at how manageable the experience is.</p>
+
+      <h2>Recovery: What to Expect</h2>
+      <p>The first 2–3 days after a lateral sinus lift are typically the most uncomfortable. Patients can expect:</p>
+      <ul>
+        <li>Mild to moderate swelling of the cheek and under the eye</li>
+        <li>Some bruising, particularly on the cheek</li>
+        <li>Slight congestion or blood-tinged nasal discharge for a few days</li>
+        <li>Soreness well-managed with prescribed or over-the-counter pain medication</li>
+      </ul>
+      <p>Most patients return to office work within 2–3 days. Heavy exercise and activities that involve straining or blowing the nose (which could disturb the graft) should be avoided for 2–3 weeks.</p>
+      <p>An internal sinus lift involves less recovery — most patients feel back to normal within a day or two.</p>
+
+      <h2>Is a Sinus Lift Right for You?</h2>
+      <p>Not every patient with upper back tooth loss needs a sinus lift. It depends on how much bone remains, where the sinus floor sits, and which implant position is needed. A 3D CBCT scan gives us precise measurements and allows us to plan exactly what's required.</p>
+      <p>Some patients are surprised to learn that a sinus lift they were dreading turns out to be a simple internal procedure done at the time of implant placement — not a separate surgery at all. Others do require the more involved lateral approach, but find recovery completely manageable with proper preparation and aftercare guidance.</p>
+      <p>The bottom line: a sinus lift is a well-established, highly predictable procedure that opens the door to implants for patients who would otherwise not be candidates. If you've been told you need one, it's not a red flag — it's a solution.</p>
+    </div>
+
+    <div class="blog-post-cta">
+      <h3>Find Out If You Need a Sinus Lift</h3>
+      <p>A 3D CBCT scan and evaluation with Dr. Foroughi will tell you exactly what's needed — and what's possible — for your upper back teeth. Serving Oxnard and Ventura County.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Schedule an Evaluation</button>
+    </div>
+
+    <div style="margin-top:40px;padding-top:28px;border-top:1px solid #e8eef6;display:flex;align-items:center;justify-content:space-between">
+      <button onclick="showPage('blog')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">← Back to Blog</button>
+      <button onclick="showPage('blog-gum-recession')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">Next Article →</button>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
+<!-- ═══════════════════════════ BLOG POST: GUM RECESSION ═══════════════════════════ -->
+<div class="page" id="page-blog-gum-recession">
+  <div class="blog-breadcrumb"><span onclick="showPage('home')">Home</span> › <span onclick="showPage('blog')">Blog</span> › Why Gum Recession Happens</div>
+  <div class="blog-post-wrap">
+    <span class="blog-post-tag">Gum Health · Patient Guide</span>
+    <h1 class="blog-post-title">Why Gum Recession Happens — and How to Stop It</h1>
+    <div class="blog-post-meta">
+      <span>By Dr. Ramin Foroughi, Periodontist</span>
+      <span>January 2026 &nbsp;·&nbsp; 5 min read</span>
+    </div>
+
+    <div class="blog-post-body">
+      <p>Gum recession is one of the most common reasons patients are referred to a periodontist. You might notice it as sensitivity to cold, a tooth that looks longer than it used to, or an exposed yellowish root near the gumline. Left untreated, recession leads to root damage, decay in areas that were never meant to be exposed, and eventually — if the supporting tissue is lost entirely — tooth loss.</p>
+      <p>The encouraging news is that gum recession is very treatable. The key is understanding why it's happening, because the cause shapes the treatment.</p>
+
+      <h2>The Most Common Causes of Gum Recession</h2>
+      <h3>1. Periodontal Disease</h3>
+      <p>Bacterial infection in the tissue around the teeth is the leading cause of gum recession in adults. As the bacteria inflame and destroy the gum tissue and underlying bone, the gumline migrates downward. This type of recession typically affects multiple teeth and is accompanied by other signs of gum disease — bleeding, swelling, bone loss, and pocket formation.</p>
+      <h3>2. Aggressive or Incorrect Brushing</h3>
+      <p>Brushing too hard — or using a stiff-bristled toothbrush — physically abrades the gum tissue over years. This is called <strong>toothbrush abrasion</strong>, and it tends to affect isolated teeth (often on the side of the dominant hand) with a characteristic notched or worn pattern at the gumline. The gum tissue is worn away mechanically, not by bacteria.</p>
+      <h3>3. Thin Gum Tissue (Thin Biotype)</h3>
+      <p>Some people are born with naturally thin, delicate gum tissue — a characteristic called a "thin periodontal biotype." This tissue is more prone to recession from any mechanical or inflammatory trigger. It's not the patient's fault; it's anatomy. But it does mean that proactive treatment (gum grafting to thicken the tissue) is often appropriate before recession becomes more severe.</p>
+      <h3>4. Misaligned Teeth or Bite Issues</h3>
+      <p>Teeth that are positioned outside the normal arch — especially teeth that tip outward — often have very thin or absent bone on their outer surface. This makes the overlying gum tissue vulnerable to recession. Orthodontic movement can sometimes worsen recession in these situations if not carefully planned.</p>
+      <h3>5. Tooth Grinding (Bruxism)</h3>
+      <p>Chronic grinding generates lateral forces on the teeth that can damage the periodontal attachment over time, contributing to recession in some patients.</p>
+
+      <h2>What Happens If You Leave It Untreated</h2>
+      <p>Gum tissue that has receded does not grow back on its own. Once root surface is exposed, it stays exposed — and the recession typically progresses. Exposed roots are:</p>
+      <ul>
+        <li>Vulnerable to decay (root cementum is softer than enamel)</li>
+        <li>Sensitive to temperature, sweets, and touch</li>
+        <li>More prone to physical wear from brushing</li>
+        <li>Aesthetically visible when smiling</li>
+      </ul>
+      <p>Beyond the tooth itself, significant recession usually indicates loss of the underlying supporting bone — which is the real long-term threat to keeping the tooth.</p>
+
+      <h2>How It's Treated: Gum Grafting</h2>
+      <p>The most effective treatment for gum recession is a <strong>connective tissue graft (CTG)</strong> — the gold standard procedure for restoring receded gum tissue. In this procedure, a small amount of tissue is taken from the roof of the mouth and placed precisely over the exposed root surface, extending the gumline back to where it belongs.</p>
+      <p>The graft serves multiple purposes: it covers and protects the exposed root, thickens the gum tissue to resist future recession, and restores the natural contour and appearance of the gumline. In appropriate cases, complete root coverage is achievable — meaning the recession is effectively eliminated.</p>
+      <p>The procedure is performed under local anesthesia and takes approximately one hour. Recovery is manageable for most patients, with soft diet restrictions for about two weeks while the graft heals.</p>
+
+      <h2>The Right Time to Treat Recession</h2>
+      <p>Earlier is always better. Small areas of recession are easier to treat, require less donor tissue, and have higher rates of complete root coverage. If you notice that a tooth looks longer, feels sensitive at the gumline, or if you can see the root surface, that's the time to get an evaluation — not after waiting another year to see if it gets worse.</p>
+      <p>If the recession is due to periodontal disease, the underlying infection must be treated first — before grafting. If it's due to brushing technique, that habit must be corrected alongside the surgical correction.</p>
+    </div>
+
+    <div class="blog-post-cta">
+      <h3>Worried About Receding Gums?</h3>
+      <p>Dr. Ramin Foroughi specializes in gum grafting and periodontal disease treatment in Oxnard, CA. An evaluation will tell you exactly where you stand and what your options are.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Request an Evaluation</button>
+    </div>
+
+    <div style="margin-top:40px;padding-top:28px;border-top:1px solid #e8eef6;display:flex;align-items:center;justify-content:space-between">
+      <button onclick="showPage('blog')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">← Back to Blog</button>
+      <button onclick="showPage('blog-gum-disease-signs')" style="background:none;border:none;color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;padding:0">Next Article →</button>
+    </div>
+  </div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</button></p></footer>
+</div>
+
 <!-- ═══════════════════════════ JS ROUTING ═══════════════════════════ -->
 <script>
   const navMap = {
@@ -1808,6 +2212,38 @@
     'referrals': 'nav-referrals',
     'contact': null,
     'privacy': null,
+    'blog': 'nav-blog',
+    'blog-gum-disease-signs': 'nav-blog',
+    'blog-implants-vs-dentures': 'nav-blog',
+    'blog-sinus-lift': 'nav-blog',
+    'blog-gum-recession': 'nav-blog',
+  };
+
+  const pageMeta = {
+    'home':                   { title: 'Limitless Periodontics & Implants | Periodontist in Oxnard, CA',          desc: 'Board-certified periodontist in Oxnard, CA. Specializing in dental implants, gum disease treatment, gum grafting, and bone regeneration. Serving Ventura County.' },
+    'meet-doctor':            { title: 'Meet Dr. Ramin Foroughi | Periodontist in Oxnard, CA',                    desc: 'Dr. Ramin Foroughi is a board-certified periodontist trained at USC and Boston University, specializing in guided implant surgery and microsurgery in Oxnard, CA.' },
+    'implants-what':          { title: 'What Are Dental Implants? | Limitless Periodontics Oxnard',               desc: 'Learn how dental implants work and why they are the gold standard for replacing missing teeth. Expert implant care in Oxnard and Ventura County, CA.' },
+    'implants-placement':     { title: 'Dental Implant Placement Oxnard CA | Limitless Periodontics',             desc: 'Expert dental implant surgery by a board-certified periodontist in Oxnard, CA. Robot-guided and fully guided implant placement for predictable, lasting results.' },
+    'implants-extraction':    { title: 'Extraction & Socket Preservation Oxnard CA | Limitless Periodontics',     desc: 'Socket preservation after tooth extraction prevents bone loss and protects your ability to receive a dental implant. Specialist care in Oxnard, CA.' },
+    'implants-sinus':         { title: 'Sinus Lift Surgery Oxnard CA | Limitless Periodontics',                   desc: 'Not enough bone for implants? A sinus lift can build the foundation you need. Expert sinus augmentation by a periodontist in Oxnard, CA.' },
+    'implants-overdenture':   { title: 'Implant-Supported Overdenture Oxnard CA | Limitless Periodontics',       desc: 'Snap-on implant overdentures provide stability and confidence. Say goodbye to loose dentures with implant-supported options in Oxnard, CA.' },
+    'implants-allon':         { title: 'All-On-X Full Arch Implants Oxnard CA | Limitless Periodontics',         desc: 'Replace all your teeth in one day with All-On-4 or All-On-6 dental implants. Full-arch restoration by a specialist periodontist in Oxnard, CA.' },
+    'implants-failing':       { title: 'Failing Implants & Peri-Implantitis Treatment | Oxnard Periodontist',    desc: 'Experiencing implant pain or mobility? Peri-implantitis treatment can save your implant. Expert care from a periodontist in Oxnard, CA.' },
+    'perio-recession':        { title: 'Gum Recession Treatment Oxnard CA | Gum Grafting Specialist',            desc: 'Treat receding gums with connective tissue grafting. Protect your teeth and restore your smile with an expert periodontist in Oxnard, CA.' },
+    'perio-disease':          { title: 'Periodontal Disease Treatment Oxnard CA | Gum Disease Specialist',       desc: 'Effective gum disease treatment from a specialist periodontist in Oxnard, CA. Stop the progression of periodontal disease before it causes tooth loss.' },
+    'perio-crown':            { title: 'Crown Lengthening Oxnard CA | Limitless Periodontics & Implants',        desc: 'Crown lengthening exposes more tooth structure for restorations or cosmetic improvement. Expert periodontal surgery in Oxnard, CA.' },
+    'perio-osseous':          { title: 'Osseous Surgery Oxnard CA | Periodontal Pocket Reduction',               desc: 'Osseous surgery removes infected tissue and reshapes bone to eliminate deep periodontal pockets. Specialist periodontal care in Oxnard, CA.' },
+    'perio-boneloss':         { title: 'Bone Loss Regeneration Oxnard CA | Limitless Periodontics',              desc: 'Rebuild lost jawbone with guided bone regeneration. Become an implant candidate even if you were told it was not possible. Serving Oxnard, CA.' },
+    'perio-frenectomy':       { title: 'Frenectomy Oxnard CA | Limitless Periodontics & Implants',              desc: 'A quick frenectomy can stop gum recession, close tooth gaps, and improve denture fit. Expert periodontal procedure in Oxnard, CA.' },
+    'sedation':               { title: 'Dental Sedation Services Oxnard CA | Nitrous, Oral & IV Sedation',       desc: 'Nitrous oxide, oral sedation, and IV sedation available. Relax comfortably through any periodontal procedure at our Oxnard, CA office.' },
+    'contact':                { title: 'Contact & Request an Appointment | Oxnard Periodontist',                  desc: 'Request an appointment at Limitless Periodontics & Implants in Oxnard, CA. Call 805-312-8604 or submit our online form.' },
+    'referrals':              { title: 'Referrals | Limitless Periodontics & Implants Oxnard CA',                desc: 'Referring a patient to Limitless Periodontics & Implants in Oxnard, CA? Download our referral slip or contact our office directly.' },
+    'blog':                   { title: 'Periodontal Health Blog | Limitless Periodontics Oxnard CA',             desc: 'Expert articles on gum disease, dental implants, gum grafting, and periodontal health from Dr. Ramin Foroughi, periodontist in Oxnard, CA.' },
+    'blog-gum-disease-signs': { title: '5 Signs of Gum Disease You Should Never Ignore | Limitless Periodontics', desc: 'Bleeding gums, loose teeth, persistent bad breath — learn the 5 warning signs of gum disease and when to see a periodontist in Oxnard, CA.' },
+    'blog-implants-vs-dentures': { title: 'Dental Implants vs. Dentures: Which Is Right for You? | Limitless Periodontics', desc: 'Comparing dental implants and dentures? Learn the key differences in cost, comfort, bone preservation, and long-term outcomes from a periodontist in Oxnard, CA.' },
+    'blog-sinus-lift':        { title: 'What Is a Sinus Lift — and Do You Need One for Dental Implants? | Limitless Periodontics', desc: 'If you\'ve been told you need a sinus lift before dental implants, here\'s what it means, how it works, and what to expect. Oxnard, CA periodontist explains.' },
+    'blog-gum-recession':     { title: 'Why Gum Recession Happens — and How to Stop It | Limitless Periodontics', desc: 'Receding gums can lead to tooth sensitivity, root exposure, and tooth loss. Learn what causes gum recession and how a periodontist treats it in Oxnard, CA.' },
+    'privacy':                { title: 'Privacy Policy | Limitless Periodontics & Implants',                     desc: 'Privacy policy for Limitless Periodontics & Implants website, Oxnard, CA.' },
   };
 
   function showPage(id) {
@@ -1817,6 +2253,13 @@
     if (page) { page.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
     const navId = navMap[id];
     if (navId) { const el = document.getElementById(navId); if(el) el.classList.add('active'); }
+    // Update page title and meta description for SEO
+    const meta = pageMeta[id];
+    if (meta) {
+      document.title = meta.title;
+      let descTag = document.querySelector('meta[name="description"]');
+      if (descTag) descTag.setAttribute('content', meta.desc);
+    }
   }
 
   // Inject Privacy Policy link into every footer
