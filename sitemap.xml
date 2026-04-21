@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.limitlessperiodontics.com/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://www.limitlessperiodontics.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/meet-doctor</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-what</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-placement</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-extraction</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-sinus</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-overdenture</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-allon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/implants-failing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-recession</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-disease</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-crown</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-crown-functional</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-osseous</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-boneloss</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/perio-frenectomy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/sedation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/contact</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/referrals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/blog-gum-disease-signs</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/blog-implants-vs-dentures</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/blog-sinus-lift</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.limitlessperiodontics.com/blog-gum-recession</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
