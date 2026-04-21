@@ -73,15 +73,40 @@
   h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
 
   /* TOP BAR */
-  .top-bar { background: var(--navy); padding: 13px 24px; }
+  .top-bar {
+    background: transparent; padding: 13px 24px;
+    transition: background 0.5s ease;
+  }
   .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 36px; }
   .top-bar-item { display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,0.88); font-size: 16px; font-weight: 400; text-decoration: none; transition: color 0.2s; }
   .top-bar-item:hover { color: #fff; }
   .top-bar-item svg { flex-shrink: 0; opacity: 0.8; }
 
   /* NAV */
-  .sticky-header { position: sticky; top: 0; z-index: 100; }
-  nav { background: #fff; box-shadow: 0 2px 20px rgba(13,43,94,0.12); }
+  /* Fixed so the video-intro fills the full viewport behind it */
+  .sticky-header { position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 100; }
+  nav {
+    background: transparent; box-shadow: none;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  /* Non-home pages need padding so content isn't hidden under the fixed header */
+  .page:not(#page-home) { padding-top: 156px; }
+
+  /* Solid header — JS adds this class once user scrolls past the video */
+  .sticky-header.header-solid .top-bar { background: var(--navy); }
+  .sticky-header.header-solid nav {
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(13,43,94,0.12);
+  }
+  .sticky-header.header-solid .nav-link { color: var(--navy); }
+  .sticky-header.header-solid .nav-link:hover,
+  .sticky-header.header-solid .nav-link.active { background: var(--blue-pale); color: var(--blue); }
+  .sticky-header.header-solid .nav-link.appt-btn {
+    background: var(--blue-mid); color: #fff;
+    box-shadow: 0 4px 16px rgba(30,95,168,0.28); border: none;
+  }
+  .sticky-header.header-solid .nav-link.appt-btn:hover { background: var(--navy); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(13,43,94,0.3); }
   .nav-inner { width: 100%; padding: 0 32px; display: flex; align-items: center; height: 110px; position: relative; }
   .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
   .logo-wrap img { height: 108px; width: auto; }
@@ -90,7 +115,7 @@
   .nav-link {
     position: relative; padding: 8px 16px; font-size: 15px; font-weight: 500;
     color: var(--navy); text-decoration: none; border-radius: 6px; cursor: pointer;
-    transition: background 0.2s, color 0.2s; white-space: nowrap; background: none; border: none;
+    transition: background 0.2s, color 0.5s, box-shadow 0.5s; white-space: nowrap; background: none; border: none;
     font-family: 'Inter', sans-serif;
   }
   .nav-link:hover, .nav-link.active { background: var(--blue-pale); color: var(--blue); }
@@ -146,6 +171,65 @@
   /* PAGES */
   .page { display: none; }
   .page.active { display: block; }
+
+  /* VIDEO INTRO */
+  .video-intro {
+    position: relative; height: 100vh; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+  }
+  .video-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,43,94,0.45) 0%,
+      rgba(10,30,70,0.25) 40%,
+      rgba(13,43,94,0.65) 100%
+    );
+  }
+  .video-intro-content {
+    position: relative; z-index: 2; text-align: center;
+    padding: 0 24px; display: flex; flex-direction: column;
+    align-items: center; gap: 20px;
+    animation: fadeInUp 1.2s cubic-bezier(0.22,1,0.36,1) both;
+    animation-delay: 0.3s;
+  }
+  .video-intro-logo {
+    height: 110px; width: auto;
+    filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5));
+    border-radius: 12px;
+  }
+  .video-intro-content h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem); color: #fff;
+    letter-spacing: -0.03em; line-height: 1.1; margin: 0;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .video-intro-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.88);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 400; margin: 0;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  }
+  .video-scroll-cue {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.75); font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer;
+    animation: bounceDown 2s ease-in-out infinite;
+    transition: color 0.2s;
+  }
+  .video-scroll-cue:hover { color: #fff; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
 
   /* HERO */
   .hero {
@@ -503,7 +587,7 @@
 <nav>
   <div class="nav-inner">
     <a class="logo-wrap" onclick="showPage('home')" style="cursor:pointer">
-      <img src="Brand_assets/Logo.jpg" alt="Limitless Periodontics & Implants"/>
+      <img src="Brand_assets/Logo.png" alt="Limitless Periodontics & Implants"/>
     </a>
     <div class="nav-links-center">
       <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
@@ -595,6 +679,27 @@
 
 <!-- ═══════════════════════════ HOME ═══════════════════════════ -->
 <div class="page active" id="page-home">
+
+  <!-- ── BEACH/OCEAN VIDEO INTRO ── -->
+  <div class="video-intro" id="video-intro">
+    <video class="video-bg" autoplay muted loop playsinline poster="Brand_assets/Logo.jpg">
+      <source src="https://videos.pexels.com/video-files/1409899/1409899-hd_1920_1080_25fps.mp4" type="video/mp4">
+      <source src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+    <div class="video-intro-content">
+<h1>Limitless Periodontics<br>&amp; Implants</h1>
+      <p>Dr. Ramin Foroughi &nbsp;·&nbsp; Oxnard, CA</p>
+    </div>
+    <div class="video-scroll-cue" onclick="document.getElementById('home-main').scrollIntoView({behavior:'smooth'})">
+      <span>Explore</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="home-main">
   <div class="hero">
     <div class="hero-content">
       <div class="hero-text">
@@ -672,6 +777,7 @@
   </div>
 
   <footer><p>© 2026 <span>Limitless Periodontics & Implants</span>. All rights reserved.</p><p style="margin-top:10px"><button class="privacy-link" onclick="showPage('privacy')">Privacy Policy</button><span style="color:rgba(255,255,255,0.3);margin:0 10px">|</span><button onclick="showPage('blog')" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</button></p></footer>
+  </div><!-- /home-main -->
 </div>
 
 <!-- ═══════════════════════════ MEET THE DOCTOR ═══════════════════════════ -->
@@ -2455,6 +2561,7 @@
     if (page) { page.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
     const navId = navMap[id];
     if (navId) { const el = document.getElementById(navId); if(el) el.classList.add('active'); }
+    requestAnimationFrame(updateHeaderTransparency);
     // Update page title, meta description, and canonical URL for SEO
     const meta = pageMeta[id];
     if (meta) {
@@ -2497,6 +2604,21 @@
     toggleMobileMenu();
     showPage(page);
   }
+
+  // Header fades in from transparent as user scrolls past the video intro
+  var _headerEl = document.querySelector('.sticky-header');
+  function updateHeaderTransparency() {
+    var homePage = document.getElementById('page-home');
+    var onHome = homePage && homePage.classList.contains('active');
+    // Video intro is 100vh; go solid when user scrolls past ~85% of the viewport height
+    if (onHome && window.scrollY < window.innerHeight * 0.85) {
+      _headerEl.classList.remove('header-solid');
+    } else {
+      _headerEl.classList.add('header-solid');
+    }
+  }
+  window.addEventListener('scroll', updateHeaderTransparency, { passive: true });
+  updateHeaderTransparency();
 
   // Inject Privacy Policy + Blog links into every footer
   document.querySelectorAll('footer').forEach(function(f) {
