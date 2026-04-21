@@ -102,10 +102,14 @@
   /* DROPDOWN */
   .dropdown { position: relative; }
   .dropdown-menu {
-    display: none; position: absolute; top: calc(100% + 4px); left: 0;
-    background: #fff; border-radius: 10px; min-width: 220px;
+    display: none; position: absolute; top: 100%; left: 0;
+    padding-top: 4px;
+    background: transparent; min-width: 220px; z-index: 200;
+  }
+  .dropdown-menu > * {
+    background: #fff; border-radius: 10px;
     box-shadow: 0 8px 40px rgba(13,43,94,0.16); border: 1px solid var(--blue-pale);
-    overflow: hidden; z-index: 200;
+    overflow: hidden;
   }
   .dropdown:hover .dropdown-menu { display: block; }
   .dropdown-item {
@@ -118,13 +122,17 @@
 
   /* MULTI-COLUMN DROPDOWN */
   .dropdown-menu-wide {
-    display: none; position: absolute; top: calc(100% + 4px); left: 50%;
+    display: none; position: absolute; top: 100%; left: 50%;
     transform: translateX(-50%);
-    background: #fff; border-radius: 12px; width: 700px;
-    box-shadow: 0 8px 40px rgba(13,43,94,0.16); border: 1px solid var(--blue-pale);
-    z-index: 200; padding: 24px 20px 20px;
+    padding-top: 4px;
+    z-index: 200; width: 700px;
   }
-  .dropdown:hover .dropdown-menu-wide { display: flex; gap: 0; }
+  .dropdown-menu-wide-inner {
+    background: #fff; border-radius: 12px; width: 100%;
+    box-shadow: 0 8px 40px rgba(13,43,94,0.16); border: 1px solid var(--blue-pale);
+    padding: 24px 20px 20px; display: flex; gap: 0;
+  }
+  .dropdown:hover .dropdown-menu-wide { display: block; }
   .dropdown-col { flex: 1; padding: 0 16px; }
   .dropdown-col + .dropdown-col { border-left: 1px solid #e8eef6; }
   .dropdown-col-title {
@@ -504,29 +512,31 @@
       <div class="dropdown">
         <button class="nav-link" id="nav-services">Our Services ▾</button>
         <div class="dropdown-menu-wide">
-          <div class="dropdown-col">
-            <div class="dropdown-col-title">Implants</div>
-            <button class="dropdown-item" onclick="showPage('implants-what')">What Are Dental Implants?</button>
-            <button class="dropdown-item" onclick="showPage('implants-placement')">Dental Implant Placement</button>
-            <button class="dropdown-item" onclick="showPage('implants-extraction')">Extraction & Socket Preservation</button>
-            <button class="dropdown-item" onclick="showPage('implants-sinus')">Sinus Lift</button>
-            <button class="dropdown-item" onclick="showPage('implants-overdenture')">Overdenture</button>
-            <button class="dropdown-item" onclick="showPage('implants-allon')">All-On-X</button>
-            <button class="dropdown-item" onclick="showPage('implants-failing')">Failing Implants</button>
-          </div>
-          <div class="dropdown-col">
-            <div class="dropdown-col-title">Periodontics</div>
-            <button class="dropdown-item" onclick="showPage('perio-recession')">Gum Recession</button>
-            <button class="dropdown-item" onclick="showPage('perio-disease')">Periodontal Disease Treatment</button>
-            <button class="dropdown-item" onclick="showPage('perio-crown')">Aesthetic Crown Lengthening</button>
-            <button class="dropdown-item" onclick="showPage('perio-crown-functional')">Functional Crown Lengthening</button>
-            <button class="dropdown-item" onclick="showPage('perio-osseous')">Osseous Surgery</button>
-            <button class="dropdown-item" onclick="showPage('perio-boneloss')">Bone Loss Regeneration</button>
-            <button class="dropdown-item" onclick="showPage('perio-frenectomy')">Frenectomy</button>
-          </div>
-          <div class="dropdown-col">
-            <div class="dropdown-col-title">Relieving Dental Anxiety</div>
-            <button class="dropdown-item" onclick="showPage('sedation')">Sedation Services</button>
+          <div class="dropdown-menu-wide-inner">
+            <div class="dropdown-col">
+              <div class="dropdown-col-title">Implants</div>
+              <button class="dropdown-item" onclick="showPage('implants-what')">What Are Dental Implants?</button>
+              <button class="dropdown-item" onclick="showPage('implants-placement')">Dental Implant Placement</button>
+              <button class="dropdown-item" onclick="showPage('implants-extraction')">Extraction & Socket Preservation</button>
+              <button class="dropdown-item" onclick="showPage('implants-sinus')">Sinus Lift</button>
+              <button class="dropdown-item" onclick="showPage('implants-overdenture')">Overdenture</button>
+              <button class="dropdown-item" onclick="showPage('implants-allon')">All-On-X</button>
+              <button class="dropdown-item" onclick="showPage('implants-failing')">Failing Implants</button>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-col-title">Periodontics</div>
+              <button class="dropdown-item" onclick="showPage('perio-recession')">Gum Recession</button>
+              <button class="dropdown-item" onclick="showPage('perio-disease')">Periodontal Disease Treatment</button>
+              <button class="dropdown-item" onclick="showPage('perio-crown')">Aesthetic Crown Lengthening</button>
+              <button class="dropdown-item" onclick="showPage('perio-crown-functional')">Functional Crown Lengthening</button>
+              <button class="dropdown-item" onclick="showPage('perio-osseous')">Osseous Surgery</button>
+              <button class="dropdown-item" onclick="showPage('perio-boneloss')">Bone Loss Regeneration</button>
+              <button class="dropdown-item" onclick="showPage('perio-frenectomy')">Frenectomy</button>
+            </div>
+            <div class="dropdown-col">
+              <div class="dropdown-col-title">Relieving Dental Anxiety</div>
+              <button class="dropdown-item" onclick="showPage('sedation')">Sedation Services</button>
+            </div>
           </div>
         </div>
       </div>
