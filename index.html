@@ -109,7 +109,8 @@
   .sticky-header.header-solid .nav-link.appt-btn:hover { background: var(--navy); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(13,43,94,0.3); }
   .nav-inner { width: 100%; padding: 0 32px; display: flex; align-items: center; height: 110px; position: relative; }
   .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-  .logo-wrap img { height: 108px; width: auto; }
+  .logo-wrap img { height: 108px; width: auto; filter: brightness(0) invert(1); transition: filter 0.5s ease; }
+  .sticky-header.header-solid .logo-wrap img { filter: invert(0); }
   .nav-links-center { display: flex; align-items: center; gap: 4px; position: absolute; left: 50%; transform: translateX(-50%); }
   .nav-links-right { display: flex; align-items: center; gap: 4px; margin-left: auto; }
   .nav-link {
