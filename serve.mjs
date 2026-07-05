@@ -26,8 +26,17 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
   // Strip query string and URL-decode before mapping to file path
-  const urlPath = decodeURIComponent(req.url.split('?')[0]);
+  let urlPath;
+  try {
+    urlPath = decodeURIComponent(req.url.split('?')[0]);
+  } catch {
+    res.writeHead(400); res.end('Bad request'); return;
+  }
   let filePath = path.join(__dirname, urlPath === '/' ? 'index.html' : urlPath);
+  // Reject paths that resolve outside the project root (e.g. ../../etc/passwd)
+  if (!path.resolve(filePath).startsWith(__dirname + path.sep)) {
+    res.writeHead(403); res.end('Forbidden'); return;
+  }
   const ext = path.extname(filePath);
   const contentType = mimeTypes[ext] || 'text/plain';
 
