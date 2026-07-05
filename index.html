@@ -178,7 +178,7 @@
 
   /* VIDEO INTRO */
   .video-intro {
-    position: relative; height: 100vh; overflow: hidden;
+    position: relative; height: 100vh; height: 100svh; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
   }
   .video-bg {
@@ -588,6 +588,7 @@
 
     .nav-inner { padding: 0 16px; height: 72px; }
     .logo-wrap img { height: 68px; }
+    .page:not(#page-home) { padding-top: 112px; }
     .nav-links-center, .nav-links-right { display: none; }
     .hamburger { display: flex; }
 
@@ -606,7 +607,7 @@
   }
 
   /* ── BLOG ── */
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin-top: 48px; }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 28px; margin-top: 48px; }
   .blog-card {
     background: #fff; border-radius: 16px; overflow: hidden; cursor: pointer;
     box-shadow: 0 4px 24px rgba(13,43,94,0.10); border: 1px solid #e8eef6;
