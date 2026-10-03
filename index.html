@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="canonical" href="https://www.limitlessperiodontics.com" />
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Limitless Periodontics & Implants | Periodontist in Oxnard, CA</title>
@@ -14,11 +13,17 @@
 {
   "@context": "https://schema.org",
   "@type": "Dentist",
+  "@id": "https://www.limitlessperiodontics.com/#practice",
   "name": "Limitless Periodontics & Implants",
-  "description": "Periodontal specialty practice in Oxnard, CA offering dental implants, gum disease treatment, gum grafting, sinus lifts, bone regeneration, and sedation services.",
-  "url": "https://www.limitlessperiodontics.com",
-  "logo": "https://www.limitlessperiodontics.com/Brand_assets/Logo.jpg",
-  "telephone": "+18053128604",
+  "description": "Periodontal specialty practice in Oxnard, CA led by periodontist Dr. Ramin Foroughi, offering dental implants, All-on-X full-arch implants, gum grafting, gum disease treatment, sinus lifts, bone regeneration, and sedation. Serving Oxnard, Camarillo, Ventura, and Ventura County.",
+  "url": "https://www.limitlessperiodontics.com/",
+  "logo": "https://www.limitlessperiodontics.com/Brand_assets/Logo.png",
+  "image": [
+    "https://www.limitlessperiodontics.com/office%20photos/Operatory.JPG",
+    "https://www.limitlessperiodontics.com/dentist-nobg.png"
+  ],
+  "telephone": "+1-805-312-8604",
+  "faxNumber": "+1-805-303-1977",
   "email": "info@limitlessperiodontics.com",
   "priceRange": "$$",
   "address": {
@@ -31,29 +36,78 @@
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 34.197,
-    "longitude": -119.177
+    "latitude": 34.2171,
+    "longitude": -119.1480
   },
-  "areaServed": [
-    { "@type": "City", "name": "Oxnard" },
-    { "@type": "City", "name": "Ventura" },
-    { "@type": "City", "name": "Camarillo" },
-    { "@type": "City", "name": "Port Hueneme" },
-    { "@type": "City", "name": "Thousand Oaks" }
+  "hasMap": "https://maps.app.goo.gl/5bd5C8WX6sE3Titw9",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "15:00"
+    }
   ],
-  "medicalSpecialty": "Periodontist",
+  "areaServed": [
+    { "@type": "City", "name": "Oxnard, CA" },
+    { "@type": "City", "name": "Camarillo, CA" },
+    { "@type": "City", "name": "Ventura, CA" },
+    { "@type": "City", "name": "Port Hueneme, CA" },
+    { "@type": "City", "name": "Thousand Oaks, CA" },
+    { "@type": "AdministrativeArea", "name": "Ventura County, CA" }
+  ],
+  "knowsLanguage": ["English", "Spanish"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-805-312-8604",
+    "contactType": "appointments",
+    "availableLanguage": ["English", "Spanish"]
+  },
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "PPO dental insurance, CareCredit, Cherry financing",
   "employee": {
-    "@type": "Physician",
-    "name": "Dr. Ramin Foroughi",
+    "@type": "Person",
+    "@id": "https://www.limitlessperiodontics.com/#dr-foroughi",
+    "name": "Dr. Ramin Foroughi, DDS",
     "jobTitle": "Periodontist",
+    "image": "https://www.limitlessperiodontics.com/dentist-nobg.png",
     "alumniOf": [
-      { "@type": "CollegeOrUniversity", "name": "University of California, Los Angeles (UCLA)" },
-      { "@type": "CollegeOrUniversity", "name": "University of Southern California (USC)" },
+      { "@type": "CollegeOrUniversity", "name": "University of California, Los Angeles" },
+      { "@type": "CollegeOrUniversity", "name": "University of Southern California" },
       { "@type": "CollegeOrUniversity", "name": "Boston University" }
+    ],
+    "memberOf": [
+      { "@type": "Organization", "name": "American Dental Association" },
+      { "@type": "Organization", "name": "California Dental Association" },
+      { "@type": "Organization", "name": "Santa Barbara-Ventura County Dental Society" }
     ]
   },
-  "hasMap": "https://maps.google.com/?q=1701+Solar+Drive+Suite+291+Oxnard+CA+93030",
-  "sameAs": []
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Periodontal & Implant Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dental Implants" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "All-on-X Full-Arch Implants" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Implant-Supported Overdentures" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Failing Implant & Peri-Implantitis Treatment" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tooth Extraction & Socket Preservation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sinus Lift" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bone Grafting & Regeneration" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gum Grafting & Gum Recession Treatment" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Periodontal Disease Treatment" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Osseous Surgery" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aesthetic Crown Lengthening" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Functional Crown Lengthening" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Frenectomy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IV, Oral & Nitrous Sedation" } }
+    ]
+  }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -2119,7 +2173,7 @@
         <div class="info-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4a2 2 0 01-2 2C8.13 21 1 13.87 1 6a2 2 0 012-2h1z" stroke="#1e5fa8" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>
         </div>
-        <div><h4>Phone</h4><p><a href="tel:8053128604" style="color:inherit;text-decoration:none">805-312-8604</a></p></div>
+        <div><h4>Phone</h4><p><a href="tel:8053128604" style="color:inherit;text-decoration:none">805-312-8604</a><br/>Fax: 805-303-1977</p></div>
       </div>
       <div class="info-item">
         <div class="info-icon">
@@ -2129,6 +2183,18 @@
           <h4>Office Hours</h4>
           <p>Monday – Friday: 8:00 AM – 6:00 PM<br/>Saturday: 8:00 AM – 3:00 PM</p>
         </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="4" width="18" height="14" rx="2" stroke="#1e5fa8" stroke-width="1.8" fill="none"/><path d="M3 6l8 6 8-6" stroke="#1e5fa8" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Email</h4><p><a href="mailto:info@limitlessperiodontics.com" style="color:inherit;text-decoration:none">info@limitlessperiodontics.com</a></p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#1e5fa8" stroke-width="1.8" fill="none"/><path d="M2 11h18M11 2c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S8.5 4.6 11 2z" stroke="#1e5fa8" stroke-width="1.8" fill="none"/></svg>
+        </div>
+        <div><h4>Languages</h4><p>English &amp; Spanish — Hablamos español</p></div>
       </div>
       <div style="background:var(--blue-pale);border-radius:12px;padding:24px;margin-top:12px">
         <h4 style="color:var(--navy);font-family:'Inter',sans-serif;font-weight:600;margin:0 0 10px">Insurance & Referrals</h4>
