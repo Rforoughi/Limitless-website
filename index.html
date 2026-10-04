@@ -110,6 +110,110 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a referral to see a periodontist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, a referral isn't required. Many patients are referred by their general dentist, but you're welcome to schedule directly. Some insurance plans do require a referral, so we'll check your plan before your visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens at my first visit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your first visit is a consultation with Dr. Ramin. We'll review your medical and dental history, take any X-rays or 3D (CBCT) scans needed, and carefully evaluate your gums, bone and teeth. Then Dr. Ramin will explain what he finds and walk you through your options and their costs. Nothing is rushed, and you'll leave with a clear plan. To save time, fill out your New Patient Forms before you arrive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you accept my insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're in-network with 11 PPO plans, including Aetna, Delta Dental, MetLife, Cigna, Guardian, Blue Cross Blue Shield of California, Humana, United Healthcare, Ameritas, Principal and Zellis. We file your claims for you. If your plan isn't listed, we welcome out-of-network PPO patients and will verify your benefits before your first visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer payment plans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We offer financing through CareCredit and Cherry, which lets you spread the cost of treatment into monthly payments. Our team can help you apply and see what you qualify for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you speak Spanish?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our team speaks English and Spanish. Hablamos español."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will treatment hurt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most procedures are done with local anesthetic, so you'll feel pressure but not pain. If you're anxious, we offer nitrous oxide, oral sedation and IV sedation. Afterward, most patients manage any soreness with over-the-counter pain relievers, and Dr. Ramin will give you a recovery plan specific to your procedure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How soon can I go back to work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the procedure. Many patients return the next day after a deep cleaning or a single implant. After grafting or full-arch treatment, plan on 2–3 days of rest. If you have IV or oral sedation, you'll need someone to drive you home."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are my gums bleeding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Healthy gums don't bleed. Bleeding when you brush or floss is usually the first sign of gum inflammation (gingivitis). Caught early, it's fully reversible; ignored, it can progress to periodontitis and bone loss. If your gums bleed regularly, it's worth an evaluation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is gum disease contagious?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gum disease isn't contagious like a cold, but the bacteria behind it can pass through saliva, for example by sharing utensils or kissing. If your partner has gum disease, it's a good idea to have your own gums checked."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can receding gums grow back?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gum tissue doesn't grow back by itself, but it can be restored. Gum grafting covers exposed roots, reduces sensitivity, protects the tooth from further recession, and improves the look of your smile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Am I a candidate for dental implants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most adults who are missing teeth are candidates. What matters most is having enough healthy bone and gums to support the implant, and if you don't, bone grafting or a sinus lift can often build that foundation. Conditions like uncontrolled diabetes or heavy smoking can affect healing, so Dr. Ramin will review your health history and 3D scans to make sure implants are right for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If I see a periodontist, do I still need my regular dentist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We work as a team with your general dentist. We handle your gum health, implants and surgical care, and your dentist continues your cleanings, fillings and crowns. We keep your dentist updated at every step."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -648,6 +752,49 @@
   .info-item p { font-size: 14px; color: #5a7090; margin: 0; line-height: 1.5; }
 
   /* FOOTER */
+  /* FAQ */
+  .faq-section { background: #fff; padding: 88px 24px; }
+  .faq-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 72px; align-items: start; }
+  .faq-intro { position: sticky; top: 200px; }
+  .faq-intro-sub { font-size: 1.05rem; color: #4a6080; line-height: 1.7; margin: 0 0 32px; }
+  .faq-call { border-left: 3px solid var(--blue-mid); padding: 4px 0 4px 18px; }
+  .faq-call p { margin: 0 0 4px; font-size: 14px; color: #4a6080; }
+  .faq-call a { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy); text-decoration: none; display: inline-block; transition: color 0.2s, transform 0.25s cubic-bezier(.34,1.56,.64,1); }
+  .faq-call a:hover { color: var(--blue); transform: translateX(3px); }
+  .faq-call a:active { transform: translateX(1px); }
+  .faq-call a:focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 4px; border-radius: 3px; }
+  .faq-group { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin: 44px 0 6px; }
+  .faq-group:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid #dce8f0; }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 4px; font-size: 1.05rem; font-weight: 600; color: var(--navy); line-height: 1.45; border-radius: 6px; transition: color 0.2s; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--blue); }
+  .faq-item summary:active { color: var(--blue-mid); }
+  .faq-item summary:focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 2px; }
+  .faq-icon { position: relative; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--blue-faint); transition: background 0.2s, transform 0.35s cubic-bezier(.34,1.56,.64,1); }
+  .faq-icon::before, .faq-icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; background: var(--blue); border-radius: 2px; }
+  .faq-icon::after { transform: rotate(90deg); }
+  .faq-item summary:hover .faq-icon { background: var(--blue-pale); }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); background: var(--blue-pale); }
+  .faq-answer { padding: 0 52px 22px 4px; }
+  .faq-answer p { margin: 0; font-size: 15px; line-height: 1.75; color: #4a6080; }
+  .faq-item[open] .faq-answer { animation: faqReveal 0.35s cubic-bezier(.22,1,.36,1); }
+  @keyframes faqReveal { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  .faq-link { background: none; border: none; padding: 0; font: inherit; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; transition: color 0.2s; }
+  .faq-link:hover { color: var(--navy); }
+  .faq-link:active { color: var(--blue-mid); }
+  .faq-link:focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 2px; border-radius: 3px; }
+  @media (max-width: 860px) {
+    .faq-section { padding: 64px 20px; }
+    .faq-inner { grid-template-columns: 1fr; gap: 36px; }
+    .faq-intro { position: static; }
+    .faq-intro-sub { margin-bottom: 24px; }
+    .faq-answer { padding-right: 4px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-icon, .faq-call a { transition: none; }
+    .faq-item[open] .faq-answer { animation: none; }
+  }
   footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 14px; }
   footer span { color: #fff; font-weight: 600; }
   footer .privacy-link { background: none; border: none; color: #7ec8f0; font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; text-decoration: underline; transition: color 0.2s; }
@@ -1166,6 +1313,75 @@
       <img loading="lazy" decoding="async" src="Cherry2.png" alt="Cherry" style="display:block;width:100%;height:73px;object-fit:contain;mix-blend-mode:multiply">
     </div>
   </div>
+
+  <!-- ── FAQ ── -->
+  <section class="faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="faq-inner">
+      <div class="faq-intro">
+        <p class="section-label">Questions &amp; Answers</p>
+        <h2 class="section-title" id="faq-title">Questions Patients Ask Us</h2>
+        <p class="faq-intro-sub">Straight answers about visits, comfort, cost, gum disease and implants.</p>
+        <div class="faq-call">
+          <p>Don't see your question?</p>
+          <a href="tel:8053128604">Call 805-312-8604</a>
+        </div>
+      </div>
+      <div class="faq-list">
+        <h3 class="faq-group">Visiting us</h3>
+        <details class="faq-item">
+          <summary>Do I need a referral to see a periodontist?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>No, a referral isn't required. Many patients are referred by their general dentist, but you're welcome to schedule directly. Some insurance plans do require a referral, so we'll check your plan before your visit.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens at my first visit?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Your first visit is a consultation with Dr. Ramin. We'll review your medical and dental history, take any X-rays or 3D (CBCT) scans needed, and carefully evaluate your gums, bone and teeth. Then Dr. Ramin will explain what he finds and walk you through your options and their costs. Nothing is rushed, and you'll leave with a clear plan. To save time, fill out your <button type="button" class="faq-link" onclick="showPage('patient-forms')">New Patient Forms</button> before you arrive.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you accept my insurance?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>We're in-network with 11 PPO plans, including Aetna, Delta Dental, MetLife, Cigna, Guardian, Blue Cross Blue Shield of California, Humana, United Healthcare, Ameritas, Principal and Zellis. We file your claims for you. If your plan isn't listed, we welcome out-of-network PPO patients and will verify your benefits before your first visit.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer payment plans?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Yes. We offer financing through CareCredit and Cherry, which lets you spread the cost of treatment into monthly payments. Our team can help you apply and see what you qualify for.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you speak Spanish?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Yes, our team speaks English and Spanish. Hablamos español.</p></div>
+        </details>
+        <h3 class="faq-group">Comfort and recovery</h3>
+        <details class="faq-item">
+          <summary>Will treatment hurt?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Most procedures are done with local anesthetic, so you'll feel pressure but not pain. If you're anxious, we offer <button type="button" class="faq-link" onclick="showPage('sedation')">nitrous oxide, oral sedation and IV sedation</button>. Afterward, most patients manage any soreness with over-the-counter pain relievers, and Dr. Ramin will give you a recovery plan specific to your procedure.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How soon can I go back to work?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>It depends on the procedure. Many patients return the next day after a deep cleaning or a single implant. After grafting or full-arch treatment, plan on 2–3 days of rest. If you have IV or oral sedation, you'll need someone to drive you home.</p></div>
+        </details>
+        <h3 class="faq-group">Gum disease</h3>
+        <details class="faq-item">
+          <summary>Why are my gums bleeding?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Healthy gums don't bleed. Bleeding when you brush or floss is usually the first sign of gum inflammation (gingivitis). Caught early, it's fully reversible; ignored, it can progress to periodontitis and bone loss. If your gums bleed regularly, it's worth an evaluation.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is gum disease contagious?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Gum disease isn't contagious like a cold, but the bacteria behind it can pass through saliva, for example by sharing utensils or kissing. If your partner has gum disease, it's a good idea to have your own gums checked.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Can receding gums grow back?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Gum tissue doesn't grow back by itself, but it can be restored. Gum grafting covers exposed roots, reduces sensitivity, protects the tooth from further recession, and improves the look of your smile.</p></div>
+        </details>
+        <h3 class="faq-group">Implants</h3>
+        <details class="faq-item">
+          <summary>Am I a candidate for dental implants?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Most adults who are missing teeth are candidates. What matters most is having enough healthy bone and gums to support the implant, and if you don't, bone grafting or a sinus lift can often build that foundation. Conditions like uncontrolled diabetes or heavy smoking can affect healing, so Dr. Ramin will review your health history and 3D scans to make sure implants are right for you.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>If I see a periodontist, do I still need my regular dentist?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Yes. We work as a team with your general dentist. We handle your gum health, implants and surgical care, and your dentist continues your cleanings, fillings and crowns. We keep your dentist updated at every step.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA Banner -->
   <div style="background:linear-gradient(135deg,var(--navy),#2d7dd2);padding:70px 24px;text-align:center">
