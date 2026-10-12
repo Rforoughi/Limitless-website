@@ -118,15 +118,21 @@
   :root {
     --navy: #0d2b5e;
     --blue: #1e5fa8;
-    --blue-mid: #2d7dd2;
+    --blue-mid: #2b77c9;
     --blue-light: #5b9bd5;
     --blue-pale: #dbeeff;
     --blue-faint: #f0f7ff;
     --white: #ffffff;
   }
   * { box-sizing: border-box; }
+  img { height: auto; }  /* width/height attributes reserve space; CSS keeps the aspect ratio */
   body { font-family: 'Inter', sans-serif; color: #1a2a3a; background: #fff; margin: 0; }
   h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+  /* Former <button> nav controls, now real links: keep button-like box (class rules below override) */
+  .as-btn { display: inline-block; text-decoration: none; text-align: center; }
+  .crumb-link { color: var(--blue); text-decoration: none; cursor: pointer; }
+  .crumb-link:hover { text-decoration: underline; }
+  .crumb-link:focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 2px; border-radius: 2px; }
 
   /* TOP BAR */
   .top-bar {
@@ -518,7 +524,8 @@
   @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 500px) { .services-grid { grid-template-columns: 1fr; } }
   .service-card {
-    position: relative; border-radius: 16px; overflow: hidden; cursor: pointer;
+    position: relative; display: block; color: inherit; text-decoration: none;
+    border-radius: 16px; overflow: hidden; cursor: pointer;
     height: 320px; box-shadow: 0 8px 32px rgba(13,43,94,0.18);
     transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
   }
@@ -593,7 +600,7 @@
   .tp-steps { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-direction: column; gap: 20px; }
   .tp-steps li { display: flex; gap: 18px; align-items: flex-start; }
   .tp-step-num { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
-  .tp-step-body h4 { font-size: 15px; font-weight: 600; color: #fff; margin: 0 0 4px; font-family: 'Inter', sans-serif; }
+  .tp-step-body h3 { font-size: 15px; font-weight: 600; color: #fff; margin: 0 0 4px; font-family: 'Inter', sans-serif; }
   .tp-step-body p { font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.55; }
 
   /* Benefits list */
@@ -647,7 +654,7 @@
   .contact-info h2 { font-size: 1.8rem; color: var(--navy); margin: 0 0 24px; }
   .info-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
   .info-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .info-item h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin: 0 0 4px; font-family: 'Inter', sans-serif; }
+  .info-item h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin: 0 0 4px; font-family: 'Inter', sans-serif; }
   .info-item p { font-size: 14px; color: #5a7090; margin: 0; line-height: 1.5; }
 
   /* FOOTER */
@@ -696,6 +703,7 @@
   }
   footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 14px; }
   footer span { color: #fff; font-weight: 600; }
+  footer .footer-btn, footer .cookie-settings { padding: 1px 6px; }
   footer .privacy-link { background: none; border: none; color: #7ec8f0; font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; text-decoration: underline; transition: color 0.2s; }
   footer .privacy-link:hover { color: #fff; }
   footer a[data-page] { display: inline-block; padding: 1px 6px; }
@@ -761,13 +769,13 @@
   }
   .form-row:hover .form-row-icon { background: var(--blue-pale); }
   .form-row-text { flex: 1; min-width: 0; }
-  .form-row-text h3 { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--navy); margin: 0 0 5px; }
+  .form-row-text h2 { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--navy); margin: 0 0 5px; }
   .form-row-text p { font-size: 14px; color: #40567a; line-height: 1.6; margin: 0; }
   .form-row-go { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--blue); flex-shrink: 0; }
   .form-row-go svg { transition: transform 0.2s; }
   .form-row:hover .form-row-go svg { transform: translateX(3px); }
   .forms-note { margin-top: 34px; background: var(--blue-faint); border: 1px solid var(--blue-pale); border-radius: 14px; padding: 24px 26px; }
-  .forms-note h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--navy); margin: 0 0 8px; }
+  .forms-note h3 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--navy); margin: 0 0 8px; }
   .forms-note p { font-size: 14px; color: #40567a; line-height: 1.7; margin: 0; }
   .forms-note a { color: var(--blue); font-weight: 600; text-decoration: none; }
   .forms-note a:hover { text-decoration: underline; }
@@ -897,14 +905,14 @@
   .blog-card-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
   .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin: 0 0 12px; line-height: 1.35; letter-spacing: -0.01em; }
   .blog-card-excerpt { font-size: 14px; color: #5a7090; line-height: 1.65; margin: 0 0 20px; flex: 1; }
-  .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #8a9ab0; border-top: 1px solid #f0f4f8; padding-top: 14px; margin-top: auto; }
+  .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #637793; border-top: 1px solid #f0f4f8; padding-top: 14px; margin-top: auto; }
   .blog-card-readmore { color: var(--blue); font-weight: 600; font-size: 13px; }
 
   /* Blog post page */
   .blog-post-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
   .blog-post-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; display: block; }
   .blog-post-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy); margin: 0 0 16px; letter-spacing: -0.025em; line-height: 1.18; }
-  .blog-post-meta { font-size: 13px; color: #8a9ab0; margin-bottom: 32px; display: flex; align-items: center; gap: 20px; }
+  .blog-post-meta { font-size: 13px; color: #637793; margin-bottom: 32px; display: flex; align-items: center; gap: 20px; }
   .blog-post-meta span { display: flex; align-items: center; gap: 6px; }
   .blog-post-hero { width: 100%; border-radius: 14px; margin-bottom: 40px; display: block; }
   .blog-post-body { font-size: 1.02rem; color: #2a3a4a; line-height: 1.82; }
@@ -920,12 +928,95 @@
   .blog-breadcrumb { background: var(--blue-faint); padding: 14px 24px; border-bottom: 1px solid #dce8f0; font-size: 13px; color: #5a7090; }
   .blog-breadcrumb span { color: var(--blue); cursor: pointer; }
   .blog-breadcrumb span:hover { text-decoration: underline; }
+
+  /* Touch targets: a transparent hit area gives small controls at least 44x44px to tap, without changing how they look */
+  .ins-badge, .top-bar-item, .hamburger, footer .privacy-link, footer a[data-page], .crumb-link,
+  .meet-doctor-btn, .faq-call a, a.as-btn, footer .cookie-settings, .faq-link { position: relative; }
+  .ins-badge::after, .top-bar-item::after, .hamburger::after, footer .privacy-link::after, footer a[data-page]::after,
+  .crumb-link::after, .meet-doctor-btn::after, .faq-call a::after, a.as-btn::after, .video-scroll-cue::after,
+  footer .cookie-settings::after, .faq-link::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+  }
+
+  /* Mobile: body copy at least 16px (labels, captions, dates and footer small print excepted) */
+  @media (max-width: 768px) {
+    .tp-benefits-list li, .tp-step-body p, .faq-answer p, .credential-list li, .info-item p, .blog-card-excerpt,
+    .blog-post-cta p, .ins-note, .faq-call p, .form-row-text p, .forms-note p,
+    [style*="font-size:15px"] :is(p, li), p[style*="color:#4a6080;font-size:14px"] { font-size: 16px !important; }
+  }
+
+  /* COOKIE CONSENT — the only cookies come from the embedded Google Map */
+  .cookie-banner {
+    position: fixed; z-index: 500; left: 24px; bottom: 24px; width: min(420px, calc(100vw - 32px));
+    background: #fff; color: #1a2a3a; border: 1px solid #dce8f0; border-radius: 14px; padding: 22px 22px 20px;
+    box-shadow: 0 2px 6px rgba(13,43,94,0.06), 0 12px 28px rgba(13,43,94,0.12), 0 32px 64px rgba(13,43,94,0.10);
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.35s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .cookie-banner.show { opacity: 1; transform: none; }
+  .cookie-banner h2 { font-size: 1.15rem; color: var(--navy); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .cookie-banner p { font-size: 14px; line-height: 1.6; color: #40567a; margin: 0 0 16px; }
+  .cookie-banner a { color: var(--blue); font-weight: 600; text-underline-offset: 3px; }
+  .cookie-actions { display: flex; gap: 10px; }
+  .cookie-btn {
+    flex: 1; min-height: 44px; padding: 11px 16px; border-radius: 8px; border: none; cursor: pointer;
+    background: var(--navy); color: #fff; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+    transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .cookie-btn:hover { background: var(--blue); transform: translateY(-1px); }
+  .cookie-btn:active { transform: translateY(0); background: #0a2149; }
+  .cookie-btn:focus-visible, .map-consent-btn:focus-visible { outline: 3px solid var(--blue-mid); outline-offset: 2px; }
+  @media (max-width: 768px) {
+    .cookie-banner { left: 16px; right: 16px; bottom: 16px; width: auto; }
+    .cookie-banner p { font-size: 16px; }
+  }
+  .map-consent {
+    height: 450px; border-radius: 12px; background: var(--blue-faint); border: 1px dashed #b9cfe6;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+    padding: 24px; text-align: center; color: #40567a; font-size: 15px; line-height: 1.6;
+  }
+  .map-consent[hidden] { display: none; }
+  iframe[data-consent-src][hidden] { display: none !important; }  /* beats the iframe's inline display:block */
+  .map-consent p { margin: 0; max-width: 340px; }
+  .map-consent-btn {
+    min-height: 44px; padding: 11px 22px; border-radius: 8px; border: none; cursor: pointer;
+    background: var(--navy); color: #fff; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+    transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .map-consent-btn:hover { background: var(--blue); transform: translateY(-1px); }
+  .map-consent-btn:active { transform: translateY(0); }
+  .map-consent a { color: var(--blue); font-weight: 600; text-underline-offset: 3px; display: inline-block; padding: 10px 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-banner { transform: none; transition: opacity 0.2s; }
+    .cookie-btn, .map-consent-btn { transition: none; }
+  }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.limitlessperiodontics.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "All-On-X Full-Arch Implants",
+      "item": "https://www.limitlessperiodontics.com/implants-allon"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- ═══════════════════════════ TOP BAR + NAV ═══════════════════════════ -->
-<div class="sticky-header">
+<div class="sticky-header" role="banner">
 <div class="top-bar">
   <div class="top-bar-inner">
     <button type="button" class="ins-badge" onclick="scrollToInsurance()" aria-label="We accept 11 insurances — see the full list of in-network plans">
@@ -960,7 +1051,7 @@
 <nav>
   <div class="nav-inner">
     <a class="logo-wrap" href="/" data-page="home">
-      <img src="Brand_assets/Logo.png" alt="Limitless Periodontics & Implants"/>
+      <img width="396" height="216" src="images/logo.webp" alt="Limitless Periodontics & Implants"/>
     </a>
     <a class="forms-btn" href="/patient-forms" data-page="patient-forms" title="New Patient Forms">
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -1087,8 +1178,8 @@
 
 
 <!-- ═══════════════════════════ ALL-ON-X ═══════════════════════════ -->
-<div class="page active" id="page-implants-allon">
-  <div class="tp-breadcrumb"><span onclick="showPage('home')">Home</span> › Implants › <h1 class="page-h1 crumb-h1">All-On-X Full-Arch Implants</h1></div>
+<main class="page active" id="page-implants-allon">
+  <div class="tp-breadcrumb"><a class="crumb-link" href="/" data-page="home">Home</a> › Implants › <h1 class="page-h1 crumb-h1">All-On-X Full-Arch Implants</h1></div>
 
   <!-- PART 1: THE PROBLEM (white bg) -->
   <div class="tp-section tp-problem">
@@ -1102,7 +1193,7 @@
           <p>The consequences of leaving a failing arch untreated compound quickly. Remaining bone shrinks, neighboring structures shift, and facial height collapses as vertical dimension is lost. Every month of delay narrows the treatment window. All-On-X offers a definitive, fixed solution that stops this cascade — often in a single surgical appointment.</p>
         </div>
         <div class="tp-media">
-          <img loading="lazy" decoding="async" src="all%20on%20x%20.jpg" alt="All-On-X full arch implant configuration" style="border-radius:16px;width:100%"/>
+          <img width="626" height="468" fetchpriority="high" decoding="async" src="images/all-on-x.webp" alt="All-On-X full arch implant configuration" style="border-radius:16px;width:100%"/>
         </div>
       </div>
     </div>
@@ -1117,16 +1208,16 @@
           <h2>How We Treat It</h2>
           <p style="color:rgba(255,255,255,0.78)">All-On-X uses a precisely angled implant configuration to maximize bone contact without requiring grafting. If the implants achieve sufficient stability at the time of placement, a full-arch provisional bridge can be loaded the same day as surgery — you arrive with a failing arch and may leave with a fixed smile.</p>
           <ul class="tp-steps">
-            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h4>Comprehensive Planning</h4><p>Full facial analysis, CBCT 3D imaging, digital smile design, and guided surgical planning ensure every implant is placed with sub-millimeter precision before surgery begins.</p></div></li>
-            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h4>Extractions & Arch Preparation</h4><p>Any remaining failing teeth are removed during the same appointment. The surgical site is prepared and contoured for ideal implant positioning.</p></div></li>
-            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h4>Angled Implant Placement</h4><p>Four to six titanium implants are placed using the All-On configuration — two anterior vertical implants and two to four posterior implants angled 15–30° to maximize bone engagement and avoid anatomical structures.</p></div></li>
-            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h4>Immediate Loading</h4><p>If sufficient implant stability is achieved, a full-arch provisional bridge is attached the same day, giving you functional, attractive teeth before you leave the office.</p></div></li>
-            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h4>Osseointegration Period</h4><p>Over 4–6 months, the implants fully fuse with the surrounding bone. Dietary restrictions apply during this phase to protect the provisional bridge.</p></div></li>
-            <li><div class="tp-step-num">6</div><div class="tp-step-body"><h4>Definitive Zirconia Bridge</h4><p>Your final, custom-milled zirconia bridge is fitted, adjusted for perfect bite and aesthetics, and permanently attached — completing your transformation.</p></div></li>
+            <li><div class="tp-step-num">1</div><div class="tp-step-body"><h3>Comprehensive Planning</h3><p>Full facial analysis, CBCT 3D imaging, digital smile design, and guided surgical planning ensure every implant is placed with sub-millimeter precision before surgery begins.</p></div></li>
+            <li><div class="tp-step-num">2</div><div class="tp-step-body"><h3>Extractions & Arch Preparation</h3><p>Any remaining failing teeth are removed during the same appointment. The surgical site is prepared and contoured for ideal implant positioning.</p></div></li>
+            <li><div class="tp-step-num">3</div><div class="tp-step-body"><h3>Angled Implant Placement</h3><p>Four to six titanium implants are placed using the All-On configuration — two anterior vertical implants and two to four posterior implants angled 15–30° to maximize bone engagement and avoid anatomical structures.</p></div></li>
+            <li><div class="tp-step-num">4</div><div class="tp-step-body"><h3>Immediate Loading</h3><p>If sufficient implant stability is achieved, a full-arch provisional bridge is attached the same day, giving you functional, attractive teeth before you leave the office.</p></div></li>
+            <li><div class="tp-step-num">5</div><div class="tp-step-body"><h3>Osseointegration Period</h3><p>Over 4–6 months, the implants fully fuse with the surrounding bone. Dietary restrictions apply during this phase to protect the provisional bridge.</p></div></li>
+            <li><div class="tp-step-num">6</div><div class="tp-step-body"><h3>Definitive Zirconia Bridge</h3><p>Your final, custom-milled zirconia bridge is fitted, adjusted for perfect bite and aesthetics, and permanently attached — completing your transformation.</p></div></li>
           </ul>
         </div>
         <div class="tp-media">
-          <img loading="lazy" decoding="async" src="all%20on%20x%202.jpg" alt="All-On-X implant procedure" style="border-radius:16px;width:100%"/>
+          <img width="900" height="500" loading="lazy" decoding="async" src="all%20on%20x%202.jpg" alt="All-On-X implant procedure" style="border-radius:16px;width:100%"/>
         </div>
       </div>
     </div>
@@ -1149,16 +1240,16 @@
             <li>Halts ongoing jawbone loss immediately</li>
             <li>Life-changing improvement in confidence and quality of life</li>
           </ul>
-          <button class="btn-blue" onclick="showPage('contact')">Schedule a Consultation</button>
+          <a class="btn-blue as-btn" href="/contact" data-page="contact">Schedule a Consultation</a>
         </div>
         <div class="tp-media">
-          <img loading="lazy" decoding="async" src="smile%201.avif" alt="Patient smiling after All-On-X full arch restoration" style="border-radius:16px;width:100%"/>
+          <img width="740" height="1109" loading="lazy" decoding="async" src="smile%201.avif" alt="Patient smiling after All-On-X full arch restoration" style="border-radius:16px;width:100%"/>
         </div>
       </div>
     </div>
   </div>
-  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><a class="privacy-link" href="/privacy" data-page="privacy" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a><span style="color:rgba(255,255,255,0.3);margin:0 10px">|</span><a href="/blog" data-page="blog" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a></p></footer>
-</div>
+  <footer style="background:var(--navy);color:rgba(255,255,255,0.7);padding:40px 24px;text-align:center;font-size:14px"><p>© 2026 <span style="color:#fff;font-weight:600">Limitless Periodontics & Implants</span></p><p style="margin-top:10px"><a class="privacy-link" href="/privacy" data-page="privacy" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a><span style="color:rgba(255,255,255,0.3);margin:0 10px">|</span><a href="/blog" data-page="blog" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a><span style="color:rgba(255,255,255,0.3);margin:0 10px">|</span><button type="button" class="footer-btn cookie-settings" style="background:none;border:none;color:rgba(255,255,255,0.55);font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onclick="openCookieSettings()">Cookie settings</button></p></footer>
+</main>
 
 <!-- ═══════════════════════════ FAILING IMPLANTS ═══════════════════════════ -->
 
@@ -1216,6 +1307,16 @@
 
 <!-- ═══════════════════════════ BLOG POST: GUM RECESSION ═══════════════════════════ -->
 
+
+<!-- ═══════════════════════════ COOKIE CONSENT ═══════════════════════════ -->
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie preferences" hidden>
+  <h2>Cookies on this site</h2>
+  <p>We only use cookies for the Google Map on our Contact page. Accept to show the map, or reject and everything else works the same. <a href="/privacy">Privacy Policy</a></p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn" onclick="setCookieConsent('rejected')">Reject</button>
+    <button type="button" class="cookie-btn" onclick="setCookieConsent('accepted')">Accept</button>
+  </div>
+</div>
 
 <!-- ═══════════════════════════ JS ROUTING ═══════════════════════════ -->
 <script>
@@ -1438,12 +1539,42 @@
     }, 150);
   })();
 
+
+  // Cookie consent: Google Maps (Contact page) is the only thing that sets cookies.
+  // Nothing loads from Google Maps until the visitor accepts; the choice is remembered.
+  (function () {
+    var KEY = 'cookie-consent';
+    var banner = document.getElementById('cookie-banner');
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+    function applyMaps(on) {
+      document.querySelectorAll('iframe[data-consent-src]').forEach(function (f) {
+        if (on) { if (!f.getAttribute('src')) f.src = f.dataset.consentSrc; f.hidden = false; }
+        else { f.removeAttribute('src'); f.hidden = true; }
+      });
+      document.querySelectorAll('.map-consent').forEach(function (p) { p.hidden = on; });
+    }
+    function show() {
+      banner.hidden = false;
+      requestAnimationFrame(function () { requestAnimationFrame(function () { banner.classList.add('show'); }); });
+    }
+    function hide() {
+      banner.classList.remove('show');
+      setTimeout(function () { banner.hidden = true; }, 350);
+    }
+    window.setCookieConsent = function (choice) { save(choice); applyMaps(choice === 'accepted'); hide(); };
+    window.openCookieSettings = function () { show(); banner.querySelector('.cookie-btn').focus(); };
+    var choice = read();
+    applyMaps(choice === 'accepted');
+    if (!choice) show();
+  })();
+
   // Inject Privacy Policy + Blog links into every footer
   document.querySelectorAll('footer').forEach(function(f) {
     if (!f.querySelector('.privacy-link')) {
       var p = document.createElement('p');
       p.style.marginTop = '10px';
-      p.innerHTML = '<button class="privacy-link" onclick="showPage(\'privacy\')">Privacy Policy</button><span style="color:rgba(255,255,255,0.3);margin:0 10px">|</span><button class="privacy-link" onclick="showPage(\'blog\')">Blog</button>';
+      p.innerHTML = '<a class="privacy-link" href="/privacy" data-page="privacy">Privacy Policy</a><span style="color:rgba(255,255,255,0.3);margin:0 10px">|</span><a class="privacy-link" href="/blog" data-page="blog">Blog</a>';
       f.appendChild(p);
     }
   });
