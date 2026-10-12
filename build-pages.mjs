@@ -45,6 +45,18 @@ for (const [id, meta] of Object.entries(pageMeta)) {
   html = html.replace(new RegExp(`<div (class="page" id="page-${id}"|id="page-${id}" class="page")>`),
     `<div class="page active" id="page-${id}">`);
 
+  // One <h1> per page: demote the home hero's <h1>, then promote this page's
+  // heading (marked class="page-h1") to <h1>
+  html = replaceOnce(html, /<h1 class="page-h1">([\s\S]*?)<\/h1>/, '<h2 class="page-h1">$1</h2>', 'home <h1>');
+  const start = html.indexOf(`id="page-${id}"`);
+  const head = /<(h2|strong) class="([^"]*\bpage-h1\b[^"]*)"([^>]*)>([\s\S]*?)<\/\1>/g;
+  head.lastIndex = start;
+  const h = head.exec(html);
+  const nextPage = html.indexOf('class="page', start + 1);
+  if (!h || (nextPage !== -1 && h.index > nextPage)) throw new Error(`No page-h1 heading in #page-${id}`);
+  html = html.slice(0, h.index) + `<h1 class="${h[2]}"${h[3]}>${h[4]}</h1>` + html.slice(h.index + h[0].length);
+  if (html.match(/<h1[\s>]/g).length !== 1) throw new Error(`${id}: expected exactly one <h1>`);
+
   const out = `${id}.html`;
   fs.writeFileSync(path.join(__dirname, out), html);
   written.push(out);
