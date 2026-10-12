@@ -8,6 +8,10 @@
 - If no reference image: design from scratch with high craft (see guardrails below).
 - Screenshot your output, compare against reference, fix mismatches, re-screenshot. Do at least 2 comparison rounds. Stop only when no visible differences remain or user says so.
 
+## Site Build
+- The source is `src/index.html`. Root `index.html` and `<page>.html` files are generated — never edit them.
+- After editing `src/index.html`, run `node build-pages.mjs` and commit the source and regenerated files together.
+
 ## Local Server
 - **Always serve on localhost** — never screenshot a `file:///` URL.
 - Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`)
