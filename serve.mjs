@@ -33,6 +33,8 @@ const server = http.createServer((req, res) => {
     res.writeHead(400); res.end('Bad request'); return;
   }
   let filePath = path.join(__dirname, urlPath === '/' ? 'index.html' : urlPath);
+  // Mirror Vercel cleanUrls: /implants-what → implants-what.html (from build-pages.mjs)
+  if (!path.extname(filePath) && fs.existsSync(filePath + '.html')) filePath += '.html';
   // Reject paths that resolve outside the project root (e.g. ../../etc/passwd)
   if (!path.resolve(filePath).startsWith(__dirname + path.sep)) {
     res.writeHead(403); res.end('Forbidden'); return;
